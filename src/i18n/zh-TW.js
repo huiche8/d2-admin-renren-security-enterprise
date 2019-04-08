@@ -1,5 +1,3 @@
-import setting from '@/setting'
-
 const t = {}
 
 t.loading = '加載中...'
@@ -76,7 +74,7 @@ t.home.sysInfo = {}
 t.home.sysInfo.name = '系統名稱'
 t.home.sysInfo.nameVal = 'renren-security【企業版】'
 t.home.sysInfo.version = '版本信息'
-t.home.sysInfo.versionVal = setting.version
+t.home.sysInfo.versionVal = process.env.VUE_APP_VERSION
 t.home.sysInfo.osName = '操作系統'
 t.home.sysInfo.osVersion = '系統版本'
 t.home.sysInfo.osArch = '系統架構'

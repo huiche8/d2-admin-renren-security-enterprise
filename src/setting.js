@@ -1,7 +1,4 @@
-import packageInfo from '../package.json'
-
 export default {
-  version: packageInfo.version,
   // 快捷键
   // 支持快捷键 例如 ctrl+shift+s
   hotkey: {

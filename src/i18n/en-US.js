@@ -1,5 +1,3 @@
-import setting from '@/setting'
-
 const t = {}
 
 t.loading = 'Loading...'
@@ -76,7 +74,7 @@ t.home.sysInfo = {}
 t.home.sysInfo.name = 'System Name'
 t.home.sysInfo.nameVal = 'renren-security [Enterprise]'
 t.home.sysInfo.version = 'Version Information'
-t.home.sysInfo.versionVal = setting.version
+t.home.sysInfo.versionVal = process.env.VUE_APP_VERSION
 t.home.sysInfo.osName = 'Operating System'
 t.home.sysInfo.osVersion = 'System Version'
 t.home.sysInfo.osArch = 'System Architecture'
