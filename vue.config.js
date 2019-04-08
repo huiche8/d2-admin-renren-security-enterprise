@@ -69,13 +69,6 @@ module.exports = {
       .use('text-loader')
       .loader('text-loader')
       .end()
-    // i18n
-    config.module
-      .rule('i18n')
-      .resourceQuery(/blockType=i18n/)
-      .use('i18n')
-      .loader('@kazupon/vue-i18n-loader')
-      .end()
     // svg
     const svgRule = config.module.rule('svg')
     svgRule.uses.clear()
@@ -103,12 +96,5 @@ module.exports = {
     config.node
       .set('__dirname', true)
       .set('__filename', true)
-    // 判断环境加入模拟数据
-    const entry = config.entry('app')
-    if (process.env.VUE_APP_BUILD_MODE !== 'nomock') {
-      entry
-        .add('@/mock')
-        .end()
-    }
   }
 }
