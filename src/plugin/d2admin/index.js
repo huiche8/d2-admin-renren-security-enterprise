@@ -1,3 +1,5 @@
+// i18n
+import i18n from '@/i18n'
 // Element
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -27,7 +29,9 @@ export default {
     // 构建时间
     Vue.prototype.$buildTime = process.env.VUE_APP_BUILD_TIME
     // Element
-    Vue.use(ElementUI)
+    Vue.use(ElementUI, {
+      i18n: (key, value) => i18n.t(key, value)
+    })
     // 插件
     Vue.use(pluginError)
     Vue.use(pluginLog)

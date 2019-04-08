@@ -1,6 +1,8 @@
 // Vue
 import Vue from 'vue'
 import App from './App'
+// i18n
+import i18n from '@/i18n'
 // 核心插件
 import d2Admin from '@/plugin/d2admin'
 // store
@@ -21,6 +23,7 @@ Vue.use(d2Admin)
 Vue.use(D2Crud)
 
 new Vue({
+  i18n,
   router,
   store,
   render: h => h(App),
