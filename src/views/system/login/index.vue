@@ -16,7 +16,7 @@
         flex="dir:top main:justify cross:center box:justify">
         <div class="page-login--content-header">
           <p class="page-login--content-header-motto">
-            时间是一切财富中最宝贵的财富。 <span>—— 德奥弗拉斯多</span>
+            {{ $t('login.motto.text') }}
           </p>
         </div>
         <div
@@ -29,63 +29,46 @@
             <el-card shadow="never">
               <el-form ref="loginForm" label-position="top" :rules="rules" :model="formLogin" size="default">
                 <el-form-item prop="username">
-                  <el-input type="text" v-model="formLogin.username" placeholder="用户名">
+                  <el-input type="text" v-model="formLogin.username" :placeholder="$t('login.form.placeholderUsername')">
                     <i slot="prepend" class="fa fa-user-circle-o"></i>
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                  <el-input type="password" v-model="formLogin.password" placeholder="密码">
+                  <el-input type="password" v-model="formLogin.password" :placeholder="$t('login.form.placeholderPassword')">
                     <i slot="prepend" class="fa fa-keyboard-o"></i>
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="code">
                   <el-input type="text" v-model="formLogin.code" placeholder="- - - -">
-                    <template slot="prepend">验证码</template>
+                    <template slot="prepend">{{ $t('login.form.textCode') }}</template>
                     <template slot="append">
                       <img class="login-code" src="./image/login-code.png">
                     </template>
                   </el-input>
                 </el-form-item>
-                <el-button size="default" @click="submit" type="primary" class="button-login">登录</el-button>
+                <el-button size="default" @click="submit" type="primary" class="button-login">{{ $t('login.form.textSubmitButton') }}</el-button>
               </el-form>
             </el-card>
             <p
               class="page-login--options"
               flex="main:justify cross:center">
-              <span><d2-icon name="question-circle"/> 忘记密码</span>
-              <span>注册用户</span>
+              <span><d2-icon name="question-circle"/> {{ $t('login.form.textForget') }}</span>
+              <span>{{ $t('login.form.textSignUp') }}</span>
             </p>
-            <!-- 快速登录按钮 -->
-            <el-button class="page-login--quick" size="default" type="info" @click="dialogVisible = true">
-              快速选择用户（测试功能）
-            </el-button>
           </div>
         </div>
         <div class="page-login--content-footer">
           <p class="page-login--content-footer-options">
-            <a href="#">帮助</a>
-            <a href="#">隐私</a>
-            <a href="#">条款</a>
+            <a href="#">{{ $t('login.footer.buttonHelp') }}</a>
+            <a href="#">{{ $t('login.footer.buttonPrivacy') }}</a>
+            <a href="#">{{ $t('login.footer.buttonClause') }}</a>
           </p>
           <p class="page-login--content-footer-copyright">
-            Copyright <d2-icon name="copyright"/> 2018 D2 Projects 开源组织出品 <a href="https://github.com/FairyEver">@FairyEver</a>
+            {{ $t('login.copyright.p1') }} <d2-icon name="copyright"/> {{ $t('login.copyright.p2') }} <a href="https://github.com/FairyEver">{{ $t('login.copyright.p3') }}</a>
           </p>
         </div>
       </div>
     </div>
-    <el-dialog
-      title="快速选择用户"
-      :visible.sync="dialogVisible"
-      width="400px">
-      <el-row :gutter="10" style="margin: -20px 0px -10px 0px;">
-        <el-col v-for="(user, index) in users" :key="index" :span="8">
-          <div class="page-login--quick-user" @click="handleUserBtnClick(user)">
-            <d2-icon name="user-circle-o"/>
-            <span>{{user.name}}</span>
-          </div>
-        </el-col>
-      </el-row>
-    </el-dialog>
   </div>
 </template>
 
@@ -97,25 +80,6 @@ export default {
     return {
       timeInterval: null,
       time: dayjs().format('HH:mm:ss'),
-      // 快速选择用户
-      dialogVisible: false,
-      users: [
-        {
-          name: '管理员',
-          username: 'admin',
-          password: 'admin'
-        },
-        {
-          name: '编辑',
-          username: 'editor',
-          password: 'editor'
-        },
-        {
-          name: '用户1',
-          username: 'user1',
-          password: 'user1'
-        }
-      ],
       // 表单
       formLogin: {
         username: 'admin',
@@ -125,13 +89,13 @@ export default {
       // 校验
       rules: {
         username: [
-          { required: true, message: '请输入用户名', trigger: 'blur' }
+          { required: true, message: this.$t('login.ruleMessage.username'), trigger: 'blur' }
         ],
         password: [
-          { required: true, message: '请输入密码', trigger: 'blur' }
+          { required: true, message: this.$t('login.ruleMessage.password'), trigger: 'blur' }
         ],
         code: [
-          { required: true, message: '请输入验证码', trigger: 'blur' }
+          { required: true, message: this.$t('login.ruleMessage.code'), trigger: 'blur' }
         ]
       }
     }
@@ -152,15 +116,6 @@ export default {
       this.time = dayjs().format('HH:mm:ss')
     },
     /**
-     * @description 接收选择一个用户快速登录的事件
-     * @param {Object} user 用户信息
-     */
-    handleUserBtnClick (user) {
-      this.formLogin.username = user.username
-      this.formLogin.password = user.password
-      this.submit()
-    },
-    /**
      * @description 提交表单
      */
     // 提交登录信息
@@ -178,9 +133,6 @@ export default {
               // 重定向对象不存在则返回顶层路径
               this.$router.replace(this.$route.query.redirect || '/')
             })
-        } else {
-          // 登录表单校验失败
-          this.$message.error('表单校验失败')
         }
       })
     }
@@ -225,9 +177,6 @@ export default {
       color: $color-text-normal;
       text-align: center;
       font-size: 12px;
-      span {
-        color: $color-text-sub;
-      }
     }
   }
   // main
@@ -266,33 +215,6 @@ export default {
       color: $color-primary;
       margin-bottom: 15px;
       font-weight: bold;
-    }
-    .page-login--quick {
-      width: 100%;
-    }
-  }
-  // 快速选择用户面板
-  .page-login--quick-user {
-    @extend %flex-center-col;
-    padding: 10px 0px;
-    border-radius: 4px;
-    &:hover {
-      background-color: $color-bg;
-      i {
-        color: $color-text-normal;
-      }
-      span {
-        color: $color-text-normal;
-      }
-    }
-    i {
-      font-size: 36px;
-      color: $color-text-sub;
-    }
-    span {
-      font-size: 12px;
-      margin-top: 10px;
-      color: $color-text-sub;
     }
   }
   // footer
