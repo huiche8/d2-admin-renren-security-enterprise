@@ -42,7 +42,9 @@
                 <el-form-item prop="captcha">
                   <el-input type="text" v-model="form.captcha" :placeholder="$t('login.form.placeholderCaptcha')">
                     <template slot="append">
-                      <img class="login-captcha" :src="captchaPath" @click="updateUUID">
+                      <div class="login-captcha" :style="{
+                        backgroundImage: `url(${captchaPath})`
+                      }" @click="updateUUID"/>
                     </template>
                   </el-input>
                 </el-form-item>
@@ -232,7 +234,9 @@ export default {
     }
     .login-captcha {
       height: 40px - 2px;
-      display: block;
+      width: 126px;
+      background-size: cover;
+      background-position: center;
       margin: 0px -20px;
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
