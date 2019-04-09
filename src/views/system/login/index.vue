@@ -28,28 +28,25 @@
           <!-- 表单 -->
           <div class="page-login--form">
             <el-card shadow="never">
-              <el-form ref="loginForm" label-position="top" :rules="rules" :model="formLogin" size="default">
+              <el-form ref="loginForm" label-position="top" :rules="rules" :model="form" size="default">
                 <el-form-item prop="username">
-                  <el-input type="text" v-model="formLogin.username" :placeholder="$t('login.form.placeholderUsername')">
-                    <i slot="prepend" class="fa fa-user-circle-o"></i>
+                  <el-input type="text" v-model="form.username" :placeholder="$t('login.form.placeholderUsername')">
+                    <i slot="prepend" class="fa fa-user-circle-o"/>
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                  <el-input type="password" v-model="formLogin.password" :placeholder="$t('login.form.placeholderPassword')">
-                    <i slot="prepend" class="fa fa-keyboard-o"></i>
+                  <el-input type="password" v-model="form.password" :placeholder="$t('login.form.placeholderPassword')">
+                    <i slot="prepend" class="fa fa-keyboard-o"/>
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="captcha">
-                  <el-input type="text" v-model="formLogin.captcha" placeholder="- - - - -">
-                    <template slot="prepend">
-                      {{ $t('login.form.textCaptcha') }}
-                    </template>
+                  <el-input type="text" v-model="form.captcha" :placeholder="$t('login.form.placeholderCaptcha')">
                     <template slot="append">
-                      <img class="login-captcha" src="./image/login-captcha.png">
+                      <img class="login-captcha" :src="captchaPath" @click="updateUUID">
                     </template>
                   </el-input>
                 </el-form-item>
-                <el-button size="default" @click="submit" type="primary" class="button-login">
+                <el-button class="button-login" size="default" type="primary" @click="submit">
                   {{ $t('login.form.textSubmitButton') }}
                 </el-button>
               </el-form>
@@ -80,21 +77,23 @@
 <script>
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
+import util from '@/libs/util.js'
 export default {
   data () {
     return {
       timeInterval: null,
       time: dayjs().format('HH:mm:ss'),
       // 表单
-      formLogin: {
+      form: {
         username: 'admin',
         password: 'admin',
-        captcha: 'v9am'
+        uuid: '',
+        captcha: ''
       }
     }
   },
   computed: {
-    // 校验
+    // 校验规则
     rules () {
       return {
         username: [
@@ -107,12 +106,18 @@ export default {
           { required: true, message: this.$t('login.ruleMessage.captcha'), trigger: 'blur' }
         ]
       }
+    },
+    // 验证码图片地址
+    captchaPath () {
+      return `${process.env.VUE_APP_API}/captcha?uuid=${this.form.uuid}`
     }
   },
+  created () {
+    // 刷新验证码和 uuid
+    this.updateUUID()
+  },
   mounted () {
-    this.timeInterval = setInterval(() => {
-      this.refreshTime()
-    }, 1000)
+    this.timeInterval = setInterval(this.refreshTime, 1000)
   },
   beforeDestroy () {
     clearInterval(this.timeInterval)
@@ -121,13 +126,21 @@ export default {
     ...mapActions('d2admin/account', [
       'login'
     ]),
+    /**
+     * @description 刷新 uuid
+     */
+    updateUUID () {
+      this.form.uuid = util.getUUID()
+    },
+    /**
+     * @description 刷新后面的时间背景
+     */
     refreshTime () {
       this.time = dayjs().format('HH:mm:ss')
     },
     /**
      * @description 提交表单
      */
-    // 提交登录信息
     submit () {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
@@ -135,8 +148,8 @@ export default {
           // 注意 这里的演示没有传验证码
           // 具体需要传递的数据请自行修改代码
           this.login({
-            username: this.formLogin.username,
-            password: this.formLogin.password
+            username: this.form.username,
+            password: this.form.password
           })
             .then(() => {
               // 重定向对象不存在则返回顶层路径
