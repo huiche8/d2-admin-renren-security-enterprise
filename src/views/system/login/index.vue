@@ -2,7 +2,7 @@
   <div class="page-login">
     <div class="page-login--layer page-login--layer-area">
       <ul class="circles">
-        <li v-for="n in 10" :key="n"></li>
+        <li v-for="n in 10" :key="n"/>
       </ul>
     </div>
     <div
@@ -16,43 +16,71 @@
         flex="dir:top main:justify cross:center box:justify">
         <div class="page-login--content-header">
           <p class="page-login--content-header-motto">
-            {{ $t('login.motto.text') }}
+            {{ $t('login.motto') }}
           </p>
         </div>
         <div
           class="page-login--content-main"
           flex="dir:top main:center cross:center">
           <!-- logo -->
-          <img class="page-login--logo" src="./image/logo@2x.png">
+          <img
+            class="page-login--logo"
+            src="./image/logo@2x.png">
           <!-- 表单 -->
           <div class="page-login--form">
             <el-card shadow="never">
-              <el-form ref="loginForm" label-position="top" :rules="rules" :model="formLogin" size="default">
+              <el-form
+                ref="loginForm"
+                label-position="top"
+                :rules="rules"
+                :model="formLogin"
+                size="default">
                 <el-form-item prop="username">
-                  <el-input type="text" v-model="formLogin.username" :placeholder="$t('login.form.placeholderUsername')">
+                  <el-input
+                    type="text"
+                    v-model="formLogin.username"
+                    :placeholder="$t('login.form.placeholderUsername')">
                     <i slot="prepend" class="fa fa-user-circle-o"></i>
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                  <el-input type="password" v-model="formLogin.password" :placeholder="$t('login.form.placeholderPassword')">
+                  <el-input
+                    type="password"
+                    v-model="formLogin.password"
+                    :placeholder="$t('login.form.placeholderPassword')">
                     <i slot="prepend" class="fa fa-keyboard-o"></i>
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="code">
-                  <el-input type="text" v-model="formLogin.code" placeholder="- - - -">
-                    <template slot="prepend">{{ $t('login.form.textCode') }}</template>
+                  <el-input
+                    type="text"
+                    v-model="formLogin.code"
+                    placeholder="- - - -">
+                    <template slot="prepend">
+                      {{ $t('login.form.textCode') }}
+                    </template>
                     <template slot="append">
-                      <img class="login-code" src="./image/login-code.png">
+                      <img
+                        class="login-code"
+                        src="./image/login-code.png">
                     </template>
                   </el-input>
                 </el-form-item>
-                <el-button size="default" @click="submit" type="primary" class="button-login">{{ $t('login.form.textSubmitButton') }}</el-button>
+                <el-button
+                  size="default"
+                  @click="submit"
+                  type="primary"
+                  class="button-login">
+                  {{ $t('login.form.textSubmitButton') }}
+                </el-button>
               </el-form>
             </el-card>
             <p
               class="page-login--options"
               flex="main:justify cross:center">
-              <span><d2-icon name="question-circle"/> {{ $t('login.form.textForget') }}</span>
+              <span>
+                <d2-icon name="question-circle"/> {{ $t('login.form.textForget') }}
+              </span>
               <span>{{ $t('login.form.textSignUp') }}</span>
             </p>
           </div>
