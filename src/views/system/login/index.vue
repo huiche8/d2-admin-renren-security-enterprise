@@ -5,79 +5,56 @@
         <li v-for="n in 10" :key="n"/>
       </ul>
     </div>
-    <div
-      class="page-login--layer page-login--layer-time"
-      flex="main:center cross:center">
-      {{time}}
-    </div>
+    <div class="page-login--layer page-login--layer-time" flex="main:center cross:center">{{time}}</div>
     <div class="page-login--layer">
-      <div
-        class="page-login--content"
-        flex="dir:top main:justify cross:center box:justify">
-        <div class="page-login--content-header">
-          <p class="page-login--content-header-motto">
-            {{ $t('login.motto') }}
+      <div class="page-login--content" flex="dir:top main:justify box:justify">
+        <div class="page-login--content-header" flex="main:justify box:justify">
+          <p class="page-login--content-header-side">
+            <span class="page-login--content-header-side-text" style="opacity: 0;"><d2-icon name="language"/> {{ $t('login.language') }}</span>
+          </p>
+          <p class="page-login--content-header-center">{{ $t('login.motto') }}</p>
+          <p class="page-login--content-header-side">
+            <el-dropdown size="small" @command="command => $i18n.locale = command">
+              <span class="page-login--content-header-side-text"><d2-icon name="language"/> {{ $t('login.language') }}</span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item v-for="(language, index) in $languages" :key="index" :command="language.value">{{ language.label }}</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
           </p>
         </div>
-        <div
-          class="page-login--content-main"
-          flex="dir:top main:center cross:center">
+        <div class="page-login--content-main" flex="dir:top main:center cross:center">
           <!-- logo -->
-          <img
-            class="page-login--logo"
-            src="./image/logo@2x.png">
+          <img class="page-login--logo" src="./image/logo@2x.png">
           <!-- 表单 -->
           <div class="page-login--form">
             <el-card shadow="never">
-              <el-form
-                ref="loginForm"
-                label-position="top"
-                :rules="rules"
-                :model="formLogin"
-                size="default">
+              <el-form ref="loginForm" label-position="top" :rules="rules" :model="formLogin" size="default">
                 <el-form-item prop="username">
-                  <el-input
-                    type="text"
-                    v-model="formLogin.username"
-                    :placeholder="$t('login.form.placeholderUsername')">
+                  <el-input type="text" v-model="formLogin.username" :placeholder="$t('login.form.placeholderUsername')">
                     <i slot="prepend" class="fa fa-user-circle-o"></i>
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                  <el-input
-                    type="password"
-                    v-model="formLogin.password"
-                    :placeholder="$t('login.form.placeholderPassword')">
+                  <el-input type="password" v-model="formLogin.password" :placeholder="$t('login.form.placeholderPassword')">
                     <i slot="prepend" class="fa fa-keyboard-o"></i>
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="code">
-                  <el-input
-                    type="text"
-                    v-model="formLogin.code"
-                    placeholder="- - - -">
+                  <el-input type="text" v-model="formLogin.code" placeholder="- - - -">
                     <template slot="prepend">
                       {{ $t('login.form.textCode') }}
                     </template>
                     <template slot="append">
-                      <img
-                        class="login-code"
-                        src="./image/login-code.png">
+                      <img class="login-code" src="./image/login-code.png">
                     </template>
                   </el-input>
                 </el-form-item>
-                <el-button
-                  size="default"
-                  @click="submit"
-                  type="primary"
-                  class="button-login">
+                <el-button size="default" @click="submit" type="primary" class="button-login">
                   {{ $t('login.form.textSubmitButton') }}
                 </el-button>
               </el-form>
             </el-card>
-            <p
-              class="page-login--options"
-              flex="main:justify cross:center">
+            <p class="page-login--options" flex="main:justify cross:center">
               <span>
                 <d2-icon name="question-circle"/> {{ $t('login.form.textForget') }}
               </span>
@@ -199,12 +176,20 @@ export default {
   // header
   .page-login--content-header {
     padding: 1em 0;
-    .page-login--content-header-motto {
+    .page-login--content-header-side {
+      margin: 0px 20px;
+      padding: 0px;
+      .page-login--content-header-side-text {
+        color: $color-text-normal;
+        font-size: 12px;
+      }
+    }
+    .page-login--content-header-center {
       margin: 0px;
       padding: 0px;
       color: $color-text-normal;
-      text-align: center;
       font-size: 12px;
+      text-align: center;
     }
   }
   // main
@@ -263,6 +248,7 @@ export default {
       padding: 0px;
       margin: 0px;
       font-size: 12px;
+      text-align: center;
       color: $color-text-normal;
       a {
         color: $color-text-normal;

@@ -62,6 +62,7 @@ t.notFound.back = '上一页'
 t.notFound.home = '首页'
 
 t.login = {}
+t.login.language = '语言'
 t.login.motto = '时间是一切财富中最宝贵的财富'
 t.login.form = {}
 t.login.form.placeholderUsername = '用户名'
