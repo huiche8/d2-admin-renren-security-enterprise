@@ -39,13 +39,13 @@
                     <i slot="prepend" class="fa fa-keyboard-o"></i>
                   </el-input>
                 </el-form-item>
-                <el-form-item prop="code">
-                  <el-input type="text" v-model="formLogin.code" placeholder="- - - -">
+                <el-form-item prop="captcha">
+                  <el-input type="text" v-model="formLogin.captcha" placeholder="- - - - -">
                     <template slot="prepend">
-                      {{ $t('login.form.textCode') }}
+                      {{ $t('login.form.textCaptcha') }}
                     </template>
                     <template slot="append">
-                      <img class="login-code" src="./image/login-code.png">
+                      <img class="login-captcha" src="./image/login-captcha.png">
                     </template>
                   </el-input>
                 </el-form-item>
@@ -89,18 +89,22 @@ export default {
       formLogin: {
         username: 'admin',
         password: 'admin',
-        code: 'v9am'
-      },
-      // 校验
-      rules: {
+        captcha: 'v9am'
+      }
+    }
+  },
+  computed: {
+    // 校验
+    rules () {
+      return {
         username: [
           { required: true, message: this.$t('login.ruleMessage.username'), trigger: 'blur' }
         ],
         password: [
           { required: true, message: this.$t('login.ruleMessage.password'), trigger: 'blur' }
         ],
-        code: [
-          { required: true, message: this.$t('login.ruleMessage.code'), trigger: 'blur' }
+        captcha: [
+          { required: true, message: this.$t('login.ruleMessage.captcha'), trigger: 'blur' }
         ]
       }
     }
@@ -200,7 +204,7 @@ export default {
   }
   // 登录表单
   .page-login--form {
-    width: 280px;
+    width: 290px;
     // 卡片
     .el-card {
       margin-bottom: 15px;
@@ -213,7 +217,7 @@ export default {
     .el-input-group__prepend {
       padding: 0px 14px;
     }
-    .login-code {
+    .login-captcha {
       height: 40px - 2px;
       display: block;
       margin: 0px -20px;

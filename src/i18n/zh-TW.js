@@ -67,7 +67,7 @@ t.login.motto = '時間是一切財富中最寶貴的財富'
 t.login.form = {}
 t.login.form.placeholderUsername = '用戶名'
 t.login.form.placeholderPassword = '密碼'
-t.login.form.textCode = '驗證碼'
+t.login.form.textCaptcha = '驗證碼'
 t.login.form.textSubmitButton = '登入'
 t.login.form.textForget = '忘記密碼'
 t.login.form.textSignUp = '註冊用戶'
@@ -82,7 +82,7 @@ t.login.copyright.p3 = '@FairyEver'
 t.login.ruleMessage = {}
 t.login.ruleMessage.username = '請輸入用戶名'
 t.login.ruleMessage.password = '請輸入密碼'
-t.login.ruleMessage.code = '請輸入驗證碼'
+t.login.ruleMessage.captcha = '請輸入驗證碼'
 
 t.home = {}
 t.home.sysInfo = {}

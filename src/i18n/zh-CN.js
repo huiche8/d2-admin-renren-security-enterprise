@@ -67,7 +67,7 @@ t.login.motto = '时间是一切财富中最宝贵的财富'
 t.login.form = {}
 t.login.form.placeholderUsername = '用户名'
 t.login.form.placeholderPassword = '密码'
-t.login.form.textCode = '验证码'
+t.login.form.textCaptcha = '验证码'
 t.login.form.textSubmitButton = '登录'
 t.login.form.textForget = '忘记密码'
 t.login.form.textSignUp = '注册用户'
@@ -82,7 +82,7 @@ t.login.copyright.p3 = '@FairyEver'
 t.login.ruleMessage = {}
 t.login.ruleMessage.username = '请输入用户名'
 t.login.ruleMessage.password = '请输入密码'
-t.login.ruleMessage.code = '请输入验证码'
+t.login.ruleMessage.captcha = '请输入验证码'
 
 t.home = {}
 t.home.sysInfo = {}
