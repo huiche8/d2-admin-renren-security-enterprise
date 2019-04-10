@@ -4,7 +4,6 @@ import { Message } from 'element-ui'
 import { isPlainObject } from 'lodash'
 import qs from 'qs'
 import util from '@/libs/util'
-import router from '@/router'
 import store from '@/store'
 
 // 记录和显示错误
@@ -77,9 +76,7 @@ service.interceptors.request.use(config => {
  */
 service.interceptors.response.use(response => {
   if (response.data.code === 401 || response.data.code === 10001) {
-    // TODO: 清除用户信息
-    // clearLoginInfo()
-    router.replace({ name: 'login' })
+    store.dispatch('d2admin/account/logout')
     return Promise.reject(response.data.msg)
   }
   if (response.data.code !== 0) {

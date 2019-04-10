@@ -13,7 +13,7 @@ export default {
     login ({ dispatch }, userInfo) {
       return new Promise(async resolve => {
         // TODO: renren 返回的信息里没有 uuid
-        util.cookies.set('uuid', 'xxxxxxxxxxxxxxxxxxx')
+        util.cookies.set('uuid', 'xxxx-xxxx-xxxx-xxxx-xxxx')
         util.cookies.set('token', userInfo.token)
         // 设置 vuex 用户信息
         await dispatch('d2admin/user/set', {
