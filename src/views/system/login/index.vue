@@ -78,6 +78,7 @@
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 import util from '@/libs/util.js'
+import { login } from '@api/sys.login'
 export default {
   data () {
     return {
@@ -142,20 +143,16 @@ export default {
      * @description 提交表单
      */
     submit () {
-      this.$refs.loginForm.validate((valid) => {
-        if (valid) {
-          // 登录
-          // 注意 这里的演示没有传验证码
-          // 具体需要传递的数据请自行修改代码
-          this.login({
-            username: this.form.username,
-            password: this.form.password
+      this.$refs.loginForm.validate(valid => {
+        if (!valid) return
+        login(this.form)
+          .then(async res => {
+            await this.login(res)
+            this.$router.replace(this.$route.query.redirect || '/')
           })
-            .then(() => {
-              // 重定向对象不存在则返回顶层路径
-              this.$router.replace(this.$route.query.redirect || '/')
-            })
-        }
+          .catch(() => {
+            this.updateUUID()
+          })
       })
     }
   }
