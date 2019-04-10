@@ -150,9 +150,7 @@ export default {
             await this.login(res)
             this.$router.replace(this.$route.query.redirect || '/')
           })
-          .catch(() => {
-            this.updateUUID()
-          })
+          .catch(this.updateUUID)
       })
     }
   }
