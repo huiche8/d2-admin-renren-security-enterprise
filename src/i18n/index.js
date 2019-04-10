@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import Cookies from 'js-cookie'
 import zhCNLocale from 'element-ui/lib/locale/lang/zh-CN'
 import zhTWLocale from 'element-ui/lib/locale/lang/zh-TW'
 import enLocale from 'element-ui/lib/locale/lang/en'
 import zhCN from './zh-CN'
 import zhTW from './zh-TW'
 import enUS from './en-US'
+import util from '@/libs/util.js'
 
 Vue.use(VueI18n)
 
@@ -29,6 +29,6 @@ export const messages = {
 }
 
 export default new VueI18n({
-  locale: Cookies.get('language') || 'zh-CN',
+  locale: util.cookies.get('language') || 'zh-CN',
   messages
 })
