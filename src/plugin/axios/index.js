@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import { Message } from 'element-ui'
 import { isPlainObject } from 'lodash'
 import qs from 'qs'
-import util from '@/utils/util'
+import { dangerLog } from '@/utils/log'
 import store from '@/store'
 
 // 记录和显示错误
@@ -18,7 +18,7 @@ function errorLog (error) {
   })
   // 打印到控制台
   if (process.env.NODE_ENV === 'development') {
-    util.log.danger('>>>>>> Error >>>>>>')
+    dangerLog('>>>>>> Error >>>>>>')
     console.log(error)
   }
   // 显示提示

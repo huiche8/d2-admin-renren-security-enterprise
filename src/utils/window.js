@@ -1,18 +1,8 @@
-import db from './util.db'
-import log from './util.log'
-import renren from './util.renren'
-
-const util = {
-  db,
-  log,
-  renren
-}
-
 /**
  * @description 打开新页面
  * @param {String} url 地址
  */
-util.open = function (url) {
+export const open = function (url) {
   var a = document.createElement('a')
   a.setAttribute('href', url)
   a.setAttribute('target', '_blank')
@@ -21,5 +11,3 @@ util.open = function (url) {
   a.click()
   document.body.removeChild(document.getElementById('d2admin-link-temp'))
 }
-
-export default util

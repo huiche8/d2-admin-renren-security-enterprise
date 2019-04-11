@@ -1,7 +1,7 @@
-import util from '@/utils/util'
+import { open } from '@/utils/window'
 
 export default {
   install (Vue, options) {
-    Vue.prototype.$open = util.open
+    Vue.prototype.$open = open
   }
 }
