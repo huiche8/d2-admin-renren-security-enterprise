@@ -1,20 +1,13 @@
 import cookies from './util.cookies'
 import db from './util.db'
 import log from './util.log'
+import renren from './util.renren'
 
 const util = {
   cookies,
   db,
-  log
-}
-
-/**
- * @description [ renren ] 获取uuid
- */
-util.getUUID = function () {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
-    return (c === 'x' ? (Math.random() * 16 | 0) : ('r&0x3' | '0x8')).toString(16)
-  })
+  log,
+  renren
 }
 
 /**

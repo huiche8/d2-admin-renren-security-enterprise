@@ -133,7 +133,7 @@ export default {
      * @description 刷新 uuid
      */
     updateUUID () {
-      this.form.uuid = util.getUUID()
+      this.form.uuid = util.renren.getUUID()
     },
     /**
      * @description 刷新后面的时间背景
