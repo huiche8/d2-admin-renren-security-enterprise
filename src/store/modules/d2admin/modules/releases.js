@@ -1,4 +1,4 @@
-import util from '@/libs/util.js'
+import util from '@/utils/util.js'
 
 export default {
   namespaced: true,

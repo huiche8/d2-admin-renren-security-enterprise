@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import util from '@/libs/util.js'
+import { cookieSet } from '@/utils/cookie'
 import { messages } from '@/i18n'
 export default {
   name: 'app',
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     i18nHandle (val, oldVal) {
-      util.cookies.set('language', val)
+      cookieSet('language', val)
       document.querySelector('html').setAttribute('lang', val)
       document.title = messages[val].brand.lg
       // 非登录页面，切换语言刷新页面

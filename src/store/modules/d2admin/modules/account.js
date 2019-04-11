@@ -1,5 +1,5 @@
 import { Message, MessageBox } from 'element-ui'
-import util from '@/libs/util.js'
+import { cookieSet, cookieRemove } from '@/utils/cookie'
 import router from '@/router'
 
 export default {
@@ -13,8 +13,8 @@ export default {
     login ({ dispatch }, userInfo) {
       return new Promise(async resolve => {
         // TODO: renren 返回的信息里没有 uuid
-        util.cookies.set('uuid', 'xxxx-xxxx-xxxx-xxxx-xxxx')
-        util.cookies.set('token', userInfo.token)
+        cookieSet('uuid', 'xxxx-xxxx-xxxx-xxxx-xxxx')
+        cookieSet('token', userInfo.token)
         // 设置 vuex 用户信息
         await dispatch('d2admin/user/set', {
           name: 'D2Admin'
@@ -36,8 +36,8 @@ export default {
        */
       async function logout () {
         // 删除cookie
-        util.cookies.remove('token')
-        util.cookies.remove('uuid')
+        cookieRemove('token')
+        cookieRemove('uuid')
         // 清空 vuex 用户信息
         await dispatch('d2admin/user/set', {}, { root: true })
         // 跳转路由

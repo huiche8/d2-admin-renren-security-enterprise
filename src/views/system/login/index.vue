@@ -78,8 +78,8 @@
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 import { debounce } from 'lodash'
-import util from '@/libs/util.js'
-import { login } from '@api/sys.login'
+import util from '@/utils/util.js'
+import { login } from '@/api/sys.login'
 export default {
   data () {
     return {

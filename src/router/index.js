@@ -7,7 +7,7 @@ import 'nprogress/nprogress.css'
 
 import store from '@/store/index'
 
-import util from '@/libs/util.js'
+import { cookieGet } from '@/utils/cookie'
 
 // 路由数据
 import routes from './routes'
@@ -32,7 +32,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(r => r.meta.auth)) {
     // 这里暂时将cookie里是否存有token作为验证是否登录的条件
     // 请根据自身业务需要修改
-    const token = util.cookies.get('token')
+    const token = cookieGet('token')
     if (token && token !== 'undefined') {
       next()
     } else {

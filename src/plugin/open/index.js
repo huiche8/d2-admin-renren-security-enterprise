@@ -1,4 +1,4 @@
-import util from '@/libs/util'
+import util from '@/utils/util'
 
 export default {
   install (Vue, options) {

@@ -1,4 +1,5 @@
-import util from '@/libs/util'
+import util from '@/utils/util.js'
+import { cookieGet } from '@/utils/cookie'
 import router from '@/router'
 import { cloneDeep } from 'lodash'
 
@@ -18,7 +19,7 @@ function pathInit ({
   validator = () => true,
   defaultValue = ''
 }) {
-  const uuid = util.cookies.get('uuid') || 'ghost-uuid'
+  const uuid = cookieGet('uuid') || 'ghost-uuid'
   const currentPath = `${dbName}.${user ? `user.${uuid}` : 'public'}${path ? `.${path}` : ''}`
   const value = util.db.get(currentPath).value()
   if (!(value !== undefined && validator(value))) {
