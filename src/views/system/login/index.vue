@@ -78,7 +78,7 @@
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 import { debounce } from 'lodash'
-import util from '@/utils/util.js'
+import { getUUID } from '@/utils/renren'
 import { login } from '@/api/sys.login'
 export default {
   data () {
@@ -133,7 +133,7 @@ export default {
      * @description 刷新 uuid
      */
     updateUUID () {
-      this.form.uuid = util.renren.getUUID()
+      this.form.uuid = getUUID()
     },
     /**
      * @description 刷新后面的时间背景
