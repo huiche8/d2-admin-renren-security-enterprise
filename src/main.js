@@ -13,7 +13,6 @@ import D2Crud from '@d2-projects/d2-crud'
 
 // 菜单和路由设置
 import router from './router'
-import { menuHeader, menuAside } from '@/menu'
 import { frameInRoutes } from '@/router/routes'
 
 // 核心插件
@@ -31,9 +30,21 @@ new Vue({
     // 处理路由 得到每一级的路由设置
     this.$store.commit('d2admin/page/init', frameInRoutes)
     // 设置顶栏菜单
-    this.$store.commit('d2admin/menu/headerSet', menuHeader)
+    this.$store.commit('d2admin/menu/headerSet', [
+      {
+        path: '/index',
+        title: '首页',
+        icon: 'home'
+      }
+    ])
     // 初始化菜单搜索功能
-    this.$store.commit('d2admin/search/init', menuHeader)
+    this.$store.commit('d2admin/search/init', [
+      {
+        path: '/index',
+        title: '首页',
+        icon: 'home'
+      }
+    ])
   },
   mounted () {
     // 展示系统信息
@@ -44,17 +55,5 @@ new Vue({
     this.$store.commit('d2admin/ua/get')
     // 初始化全屏监听
     this.$store.dispatch('d2admin/fullscreen/listen')
-  },
-  watch: {
-    // 检测路由变化切换侧边栏内容
-    '$route.matched': {
-      handler (matched) {
-        if (matched.length > 0) {
-          const _side = menuAside.filter(menu => menu.path === matched[0].path)
-          this.$store.commit('d2admin/menu/asideSet', _side.length > 0 ? _side[0].children : [])
-        }
-      },
-      immediate: true
-    }
   }
 }).$mount('#app')
