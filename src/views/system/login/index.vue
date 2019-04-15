@@ -79,7 +79,7 @@ import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 import { debounce } from 'lodash'
 import { getUUID } from '@/utils/renren'
-import { login } from '@/api/sys.login'
+import { sysAccountService } from '@/api'
 export default {
   data () {
     return {
@@ -147,7 +147,7 @@ export default {
     submit: debounce(function () {
       this.$refs.loginForm.validate(valid => {
         if (!valid) return
-        login(this.form)
+        sysAccountService.login(this.form)
           .then(async res => {
             await this.login(res)
             this.$router.replace(this.$route.query.redirect || '/')
