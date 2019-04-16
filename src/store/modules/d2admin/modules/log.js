@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import { get } from 'lodash'
-import { cookieGet } from '@/utils/cookie'
+import { cookieGet } from '@/common/cookie'
 
 export default {
   namespaced: true,

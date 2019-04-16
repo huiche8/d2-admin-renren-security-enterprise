@@ -1,5 +1,5 @@
 import store from '@/store'
-import * as log from '@/utils/log'
+import * as log from '@/common/log'
 
 export default {
   install (Vue, options) {

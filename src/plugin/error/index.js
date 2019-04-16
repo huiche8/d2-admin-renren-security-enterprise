@@ -1,5 +1,5 @@
 import store from '@/store'
-import { capsuleLog, dangerLog } from '@/utils/log'
+import { capsuleLog, dangerLog } from '@/common/log'
 
 export default {
   install (Vue, options) {

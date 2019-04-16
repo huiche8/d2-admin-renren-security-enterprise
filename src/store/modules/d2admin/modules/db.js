@@ -1,5 +1,5 @@
-import { cookieGet } from '@/utils/cookie'
-import { db } from '@/utils/db'
+import { cookieGet } from '@/common/cookie'
+import { db } from '@/common/db'
 import router from '@/router'
 import { cloneDeep } from 'lodash'
 

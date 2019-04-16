@@ -78,8 +78,8 @@
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 import { debounce } from 'lodash'
-import { getUUID } from '@/utils/renren'
-import { sysAccountService } from '@/api'
+import { getUUID } from '@/common/renren'
+import { sysAccountService } from '@/common/api'
 export default {
   data () {
     return {

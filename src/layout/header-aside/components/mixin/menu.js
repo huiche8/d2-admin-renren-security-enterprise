@@ -1,4 +1,4 @@
-import { open } from '@/utils/window'
+import { open } from '@/common/window'
 
 export default {
   methods: {

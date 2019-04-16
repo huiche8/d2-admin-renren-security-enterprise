@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { cookieSet } from '@/utils/cookie'
+import { cookieSet } from '@/common/cookie'
 import { messages } from '@/i18n'
 export default {
   name: 'app',

@@ -13,7 +13,6 @@ import D2Crud from '@d2-projects/d2-crud'
 
 // 菜单和路由设置
 import router from './router'
-import { frameInRoutes } from '@/router/routes'
 
 // 核心插件
 Vue.use(d2Admin)
@@ -28,7 +27,24 @@ new Vue({
   render: h => h(App),
   created () {
     // 处理路由 得到每一级的路由设置
-    this.$store.commit('d2admin/page/init', frameInRoutes)
+    this.$store.commit('d2admin/page/init', [
+      {
+        path: '/',
+        redirect: { name: 'index' },
+        component: '...',
+        children: [
+          // 首页
+          {
+            path: 'index',
+            name: 'index',
+            meta: {
+              auth: true
+            },
+            component: '...'
+          }
+        ]
+      }
+    ])
     // 设置顶栏菜单
     this.$store.commit('d2admin/menu/headerSet', [
       {

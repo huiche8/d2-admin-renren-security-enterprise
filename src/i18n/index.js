@@ -6,7 +6,7 @@ import enLocale from 'element-ui/lib/locale/lang/en'
 import zhCN from './zh-CN'
 import zhTW from './zh-TW'
 import enUS from './en-US'
-import { cookieGet } from '@/utils/cookie'
+import { cookieGet } from '@/common/cookie'
 
 Vue.use(VueI18n)
 

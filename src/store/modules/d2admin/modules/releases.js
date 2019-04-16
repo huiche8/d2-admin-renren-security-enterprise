@@ -1,4 +1,4 @@
-import { capsuleLog } from '@/utils/log'
+import { capsuleLog } from '@/common/log'
 
 export default {
   namespaced: true,

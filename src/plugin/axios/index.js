@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import { Message } from 'element-ui'
 import { isPlainObject } from 'lodash'
 import qs from 'qs'
-import { dangerLog } from '@/utils/log'
+import { dangerLog } from '@/common/log'
 import store from '@/store'
 
 // 记录和显示错误

@@ -1,5 +1,5 @@
 import { Message, MessageBox } from 'element-ui'
-import { cookieSet, cookieRemove } from '@/utils/cookie'
+import { cookieSet, cookieRemove } from '@/common/cookie'
 import router from '@/router'
 
 export default {
