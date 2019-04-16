@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
+import { cookieGet } from '@/common/cookie'
 import { Message } from 'element-ui'
 import { isPlainObject } from 'lodash'
 import qs from 'qs'
@@ -40,8 +40,8 @@ const service = axios.create({
  * 请求拦截
  */
 service.interceptors.request.use(config => {
-  config.headers['Accept-Language'] = Cookies.get('language') || 'zh-CN'
-  config.headers['token'] = Cookies.get('token') || ''
+  config.headers['Accept-Language'] = cookieGet('language') || 'zh-CN'
+  config.headers['token'] = cookieGet('token') || ''
   // 默认参数
   var defaults = {}
   // 防止缓存，GET请求默认带_t参数

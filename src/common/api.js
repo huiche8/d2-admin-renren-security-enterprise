@@ -14,14 +14,25 @@ export const sysAccountService = {
 }
 
 /**
+ * @description [ sys ] 系统信息
+ */
+export const sysInfoService = {
+  get () {
+    return request({
+      url: '/sys/info',
+      method: 'get'
+    })
+  }
+}
+
+/**
  * @description [ sys ] 菜单和路由相关
  */
 export const sysMenuService = {
-  getNav (data) {
+  getNav () {
     return request({
       url: '/sys/menu/nav',
-      method: 'get',
-      data
+      method: 'get'
     })
   }
 }

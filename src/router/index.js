@@ -9,7 +9,7 @@ Vue.use(VueRouter)
 export const pageRoutes = [
   {
     path: '/login',
-    component: () => import('@/views/system/login'),
+    component: () => import('@/views/d2admin/login'),
     name: 'login',
     meta: {
       title: '登录'
@@ -17,7 +17,7 @@ export const pageRoutes = [
   },
   {
     path: '/404',
-    component: () => import('@/views/system/error/404'),
+    component: () => import('@/views/d2admin/error/404'),
     name: '404',
     meta: {
       title: '404未找到'
@@ -50,25 +50,25 @@ const router = new VueRouter({
   routes: pageRoutes.concat(moduleRoutes)
 })
 
-router.beforeEach((to, from, next) => {
-  // 添加动态(菜单)路由
-  // 已添加或者当前路由为页面路由, 可直接访问
-  if (window.SITE_CONFIG['dynamicMenuRoutesHasAdded'] || fnCurrentRouteIsPageRoute(to, pageRoutes)) {
-    return next()
-  }
-  // 获取菜单列表, 添加并全局变量保存
-  sysMenuService.getNav().then(({ data: res }) => {
-    if (res.code !== 0) {
-      Vue.prototype.$message.error(res.msg)
-      return next({ name: 'login' })
-    }
-    window.SITE_CONFIG['menuList'] = res.data
-    fnAddDynamicMenuRoutes(window.SITE_CONFIG['menuList'])
-    next({ ...to, replace: true })
-  }).catch(() => {
-    next({ name: 'login' })
-  })
-})
+// router.beforeEach((to, from, next) => {
+//   // 添加动态(菜单)路由
+//   // 已添加或者当前路由为页面路由, 可直接访问
+//   if (window.SITE_CONFIG['dynamicMenuRoutesHasAdded'] || fnCurrentRouteIsPageRoute(to, pageRoutes)) {
+//     return next()
+//   }
+//   // 获取菜单列表, 添加并全局变量保存
+//   sysMenuService.getNav().then(({ data: res }) => {
+//     if (res.code !== 0) {
+//       Vue.prototype.$message.error(res.msg)
+//       return next({ name: 'login' })
+//     }
+//     window.SITE_CONFIG['menuList'] = res.data
+//     fnAddDynamicMenuRoutes(window.SITE_CONFIG['menuList'])
+//     next({ ...to, replace: true })
+//   }).catch(() => {
+//     next({ name: 'login' })
+//   })
+// })
 
 /**
  * 判断当前路由是否为页面路由
