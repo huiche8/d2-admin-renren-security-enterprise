@@ -1,5 +1,22 @@
+<style lang="scss" scoped>
+.page {
+  p {
+    &:first-child {
+      margin-top: 0px;
+    }
+    b {
+      color: $color-text-main;
+      margin-right: 10px;
+    }
+    span {
+      color: $color-text-normal;
+    }
+  }
+}
+</style>
+
 <template>
-  <d2-container>
+  <d2-container class="page">
     <p>
       <b>{{ $t('home.sysInfo.name') }}</b>
       <span>{{ $t('home.sysInfo.nameVal') }}</span>
