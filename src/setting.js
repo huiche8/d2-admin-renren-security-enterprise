@@ -24,6 +24,16 @@ export default {
       }
     ]
   },
+  // renren | window.SITE_CONFIG['contentTabDefault'] 内容标签页默认属性对象
+  contentTabDefault: {
+    'name': '', // 名称, 由 this.$route.name 自动赋值（默认，名称 === 路由名称 === 路由路径）
+    'params': {}, // 参数, 由 this.$route.params 自动赋值
+    'query': {}, // 查询参数, 由 this.$route.query 自动赋值
+    'menuId': '', // 菜单id（用于选中侧边栏菜单，与this.$store.state.sidebarMenuActiveName进行匹配）
+    'title': '', // 标题
+    'isTab': true, // 是否通过tab展示内容?
+    'iframeURL': '' // 是否通过iframe嵌套展示内容? (以http[s]://开头, 自动匹配)
+  },
   // 菜单搜索
   search: {
     enable: true
