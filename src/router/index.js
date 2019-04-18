@@ -50,25 +50,28 @@ const router = new VueRouter({
   routes: pageRoutes.concat(moduleRoutes)
 })
 
-// router.beforeEach((to, from, next) => {
-//   // 添加动态(菜单)路由
-//   // 已添加或者当前路由为页面路由, 可直接访问
-//   if (window.SITE_CONFIG['dynamicMenuRoutesHasAdded'] || fnCurrentRouteIsPageRoute(to, pageRoutes)) {
-//     return next()
-//   }
-//   // 获取菜单列表, 添加并全局变量保存
-//   sysMenuService.getNav().then(({ data: res }) => {
-//     if (res.code !== 0) {
-//       Vue.prototype.$message.error(res.msg)
-//       return next({ name: 'login' })
-//     }
-//     window.SITE_CONFIG['menuList'] = res.data
-//     fnAddDynamicMenuRoutes(window.SITE_CONFIG['menuList'])
-//     next({ ...to, replace: true })
-//   }).catch(() => {
-//     next({ name: 'login' })
-//   })
-// })
+router.beforeEach((to, from, next) => {
+  // 添加动态(菜单)路由
+  // 已添加或者当前路由为页面路由, 可直接访问
+  if (window.SITE_CONFIG['dynamicMenuRoutesHasAdded'] || fnCurrentRouteIsPageRoute(to, pageRoutes)) {
+    return next()
+  }
+  // 获取菜单列表, 添加并全局变量保存
+  sysMenuService
+    .getNav()
+    .then(res => {
+      window.SITE_CONFIG['menuList'] = res
+      fnAddDynamicMenuRoutes(window.SITE_CONFIG['menuList'])
+      next({
+        ...to,
+        replace: true
+      })
+    }).catch(() => {
+      next({
+        name: 'login'
+      })
+    })
+})
 
 /**
  * 判断当前路由是否为页面路由
@@ -121,6 +124,9 @@ function fnAddDynamicMenuRoutes (menuList = [], routes = []) {
       route['path'] = route['name'] = URL.replace(/\//g, '-')
       route['component'] = () => import(`@/views/modules/${URL}`)
     }
+    console.group('fnAddDynamicMenuRoutes')
+    console.log(route)
+    console.groupEnd()
     routes.push(route)
   }
   if (temp.length >= 1) {
