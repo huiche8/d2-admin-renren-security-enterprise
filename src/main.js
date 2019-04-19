@@ -45,14 +45,6 @@ new Vue({
         ]
       }
     ])
-    // 设置顶栏菜单
-    this.$store.commit('d2admin/menu/headerSet', [
-      {
-        path: '/index',
-        title: '首页',
-        icon: 'home'
-      }
-    ])
     // 初始化菜单搜索功能
     this.$store.commit('d2admin/search/init', [
       {
