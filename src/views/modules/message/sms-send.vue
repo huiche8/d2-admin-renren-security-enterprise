@@ -57,7 +57,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$http.post(
+        this.$axios.post(
           '/sys/sms/send',
           this.dataForm,
           { headers: { 'content-type': 'application/x-www-form-urlencoded' } }

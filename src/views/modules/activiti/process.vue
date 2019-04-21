@@ -116,7 +116,7 @@ export default {
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
       }).then(() => {
-        this.$http.put(`/act/process/active/${id}`).then(({ data: res }) => {
+        this.$axios.put(`/act/process/active/${id}`).then(({ data: res }) => {
           if (res.code !== 0) {
             return this.$message.error(res.msg)
           }
@@ -138,7 +138,7 @@ export default {
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
       }).then(() => {
-        this.$http.put(`/act/process/suspend/${id}`).then(({ data: res }) => {
+        this.$axios.put(`/act/process/suspend/${id}`).then(({ data: res }) => {
           if (res.code !== 0) {
             return this.$message.error(res.msg)
           }
@@ -160,7 +160,7 @@ export default {
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
       }).then(() => {
-        this.$http.post(`/act/process/convertToModel/${id}`).then(({ data: res }) => {
+        this.$axios.post(`/act/process/convertToModel/${id}`).then(({ data: res }) => {
           if (res.code !== 0) {
             return this.$message.error(res.msg)
           }

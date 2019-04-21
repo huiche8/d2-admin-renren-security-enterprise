@@ -1,8 +1,11 @@
-// i18n
-import i18n, { messages } from '@/i18n'
 // Element
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// i18n
+import i18n, { messages } from '@/i18n'
+// axios
+import axios from '@/plugin/axios'
+import { hasPermission } from '@/common/renren'
 // flex 布局库
 import 'flex.css'
 // 组件
@@ -20,6 +23,10 @@ export default {
     // 设置为 false 以阻止 vue 在启动时生成生产提示
     // https://cn.vuejs.org/v2/api/#productionTip
     Vue.config.productionTip = false
+    // [ renren ] 挂载全局
+    Vue.prototype.$axios = axios
+    // [ renren ] 挂载全局
+    Vue.prototype.$hasPermission = hasPermission
     // 当前环境
     Vue.prototype.$env = process.env.NODE_ENV
     // 当前的 baseUrl

@@ -63,7 +63,7 @@ export default {
     },
     // 获取信息
     getInfo () {
-      this.$http.get('/sys/mailtemplate/config').then(({ data: res }) => {
+      this.$axios.get('/sys/mailtemplate/config').then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }
@@ -76,7 +76,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$http.post('/sys/mailtemplate/saveConfig', this.dataForm).then(({ data: res }) => {
+        this.$axios.post('/sys/mailtemplate/saveConfig', this.dataForm).then(({ data: res }) => {
           if (res.code !== 0) {
             return this.$message.error(res.msg)
           }

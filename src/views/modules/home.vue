@@ -126,7 +126,7 @@ export default {
   },
   methods: {
     getSysInfo () {
-      this.$http.get('/sys/info').then(({ data: res }) => {
+      this.$axios.get('/sys/info').then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }

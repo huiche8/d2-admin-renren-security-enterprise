@@ -117,7 +117,7 @@ export default {
     },
     // 获取菜单列表
     getMenuList () {
-      return this.$http.get('/sys/menu/list?type=0').then(({ data: res }) => {
+      return this.$axios.get('/sys/menu/list?type=0').then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }
@@ -126,7 +126,7 @@ export default {
     },
     // 获取信息
     getInfo () {
-      this.$http.get(`/sys/menu/${this.dataForm.id}`).then(({ data: res }) => {
+      this.$axios.get(`/sys/menu/${this.dataForm.id}`).then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }
@@ -162,7 +162,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$http[!this.dataForm.id ? 'post' : 'put']('/sys/menu', this.dataForm).then(({ data: res }) => {
+        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/menu', this.dataForm).then(({ data: res }) => {
           if (res.code !== 0) {
             return this.$message.error(res.msg)
           }

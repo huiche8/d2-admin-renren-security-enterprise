@@ -37,7 +37,7 @@ export default {
     // 获取数据列表
     getDataList () {
       this.dataListLoading = true
-      this.$http.get(
+      this.$axios.get(
         this.mixinViewModuleOptions.getDataListURL,
         {
           params: {
@@ -109,7 +109,7 @@ export default {
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
       }).then(() => {
-        this.$http.delete(
+        this.$axios.delete(
           `${this.mixinViewModuleOptions.deleteURL}${this.mixinViewModuleOptions.deleteIsBatch ? '' : '/' + id}`,
           this.mixinViewModuleOptions.deleteIsBatch ? {
             'data': id ? [id] : this.dataListSelections.map(item => item[this.mixinViewModuleOptions.deleteIsBatchKey])

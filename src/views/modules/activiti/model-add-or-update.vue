@@ -57,7 +57,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$http[!this.dataForm.id ? 'post' : 'put']('/act/model', this.dataForm).then(({ data: res }) => {
+        this.$axios[!this.dataForm.id ? 'post' : 'put']('/act/model', this.dataForm).then(({ data: res }) => {
           if (res.code !== 0) {
             return this.$message.error(res.msg)
           }

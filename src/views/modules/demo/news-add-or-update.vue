@@ -133,7 +133,7 @@ export default {
     },
     // 获取信息
     getInfo () {
-      this.$http.get(`/demo/news/${this.dataForm.id}`).then(({ data: res }) => {
+      this.$axios.get(`/demo/news/${this.dataForm.id}`).then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }
@@ -147,7 +147,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$http[!this.dataForm.id ? 'post' : 'put'](
+        this.$axios[!this.dataForm.id ? 'post' : 'put'](
           '/demo/news',
           this.dataForm,
           { headers: { 'content-type': 'application/x-www-form-urlencoded' } }

@@ -213,7 +213,7 @@ export default {
     },
     // 获取信息
     getInfo () {
-      this.$http.get('/sys/oss/info').then(({ data: res }) => {
+      this.$axios.get('/sys/oss/info').then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }
@@ -226,7 +226,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$http.post('/sys/oss', this.dataForm).then(({ data: res }) => {
+        this.$axios.post('/sys/oss', this.dataForm).then(({ data: res }) => {
           if (res.code !== 0) {
             return this.$message.error(res.msg)
           }

@@ -56,7 +56,7 @@ export default {
     },
     // 获取信息
     getInfo () {
-      this.$http.get(`/sys/params/${this.dataForm.id}`).then(({ data: res }) => {
+      this.$axios.get(`/sys/params/${this.dataForm.id}`).then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }
@@ -72,7 +72,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$http[!this.dataForm.id ? 'post' : 'put']('/sys/params', this.dataForm).then(({ data: res }) => {
+        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/params', this.dataForm).then(({ data: res }) => {
           if (res.code !== 0) {
             return this.$message.error(res.msg)
           }

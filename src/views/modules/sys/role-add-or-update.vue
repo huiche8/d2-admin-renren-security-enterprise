@@ -86,7 +86,7 @@ export default {
     },
     // 获取菜单列表
     getMenuList () {
-      return this.$http.get('/sys/menu/select').then(({ data: res }) => {
+      return this.$axios.get('/sys/menu/select').then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }
@@ -95,7 +95,7 @@ export default {
     },
     // 获取部门列表
     getDeptList () {
-      return this.$http.get('/sys/dept/list').then(({ data: res }) => {
+      return this.$axios.get('/sys/dept/list').then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }
@@ -104,7 +104,7 @@ export default {
     },
     // 获取信息
     getInfo () {
-      this.$http.get(`/sys/role/${this.dataForm.id}`).then(({ data: res }) => {
+      this.$axios.get(`/sys/role/${this.dataForm.id}`).then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }
@@ -127,7 +127,7 @@ export default {
           ...this.$refs.menuListTree.getCheckedKeys()
         ]
         this.dataForm.deptIdList = this.$refs.deptListTree.getCheckedKeys()
-        this.$http[!this.dataForm.id ? 'post' : 'put']('/sys/role', this.dataForm).then(({ data: res }) => {
+        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/role', this.dataForm).then(({ data: res }) => {
           if (res.code !== 0) {
             return this.$message.error(res.msg)
           }

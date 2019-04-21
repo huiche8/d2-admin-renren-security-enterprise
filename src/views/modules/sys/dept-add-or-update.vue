@@ -82,7 +82,7 @@ export default {
     },
     // 获取部门列表
     getDeptList () {
-      return this.$http.get('/sys/dept/list').then(({ data: res }) => {
+      return this.$axios.get('/sys/dept/list').then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }
@@ -91,7 +91,7 @@ export default {
     },
     // 获取信息
     getInfo () {
-      this.$http.get(`/sys/dept/${this.dataForm.id}`).then(({ data: res }) => {
+      this.$axios.get(`/sys/dept/${this.dataForm.id}`).then(({ data: res }) => {
         if (res.code !== 0) {
           return this.$message.error(res.msg)
         }
@@ -122,7 +122,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$http[!this.dataForm.id ? 'post' : 'put']('/sys/dept', this.dataForm).then(({ data: res }) => {
+        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/dept', this.dataForm).then(({ data: res }) => {
           if (res.code !== 0) {
             return this.$message.error(res.msg)
           }
