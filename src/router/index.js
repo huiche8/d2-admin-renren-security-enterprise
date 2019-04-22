@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store/index'
+import { renrenMenuToD2AdminMenu } from '@/common/compatibility'
 import { sysMenuService } from '@/common/api'
 import { isURL } from '@/common/validate'
 
@@ -61,6 +63,7 @@ router.beforeEach((to, from, next) => {
     .getNav()
     .then(res => {
       window.SITE_CONFIG['menuList'] = res
+      store.commit('d2admin/menu/asideSet', renrenMenuToD2AdminMenu(res))
       fnAddDynamicMenuRoutes(window.SITE_CONFIG['menuList'])
       next({
         ...to,
@@ -125,7 +128,7 @@ function fnAddDynamicMenuRoutes (menuList = [], routes = []) {
       route['component'] = () => import(`@/views/modules/${URL}`)
     }
     console.group('fnAddDynamicMenuRoutes')
-    console.log(`http://localhost:8081/#/${route.path}`)
+    console.log(route.path)
     console.groupEnd()
     routes.push(route)
   }
