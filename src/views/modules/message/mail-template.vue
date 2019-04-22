@@ -1,5 +1,5 @@
 <template>
-  <el-card shadow="never" class="aui-card--fill">
+  <d2-container>
     <div class="mod-message__mail-template">
       <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
         <el-form-item>
@@ -53,7 +53,7 @@
       <!-- 弹窗, 发送邮件 -->
       <send v-if="sendVisible" ref="send" @refreshDataList="getDataList"></send>
     </div>
-  </el-card>
+  </d2-container>
 </template>
 
 <script>

@@ -125,7 +125,7 @@ function fnAddDynamicMenuRoutes (menuList = [], routes = []) {
       route['component'] = () => import(`@/views/modules/${URL}`)
     }
     console.group('fnAddDynamicMenuRoutes')
-    console.log(route)
+    console.log(`http://localhost:8081/#/${route.path}`)
     console.groupEnd()
     routes.push(route)
   }

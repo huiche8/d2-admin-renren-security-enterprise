@@ -1,5 +1,5 @@
 <template>
-  <el-card shadow="never" class="aui-card--fill">
+  <d2-container>
     <div class="mod-sys__dict">
       <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
         <el-form-item>
@@ -60,7 +60,7 @@
       <!-- 弹窗, 新增 / 修改 -->
       <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getDataList"></add-or-update>
     </div>
-  </el-card>
+  </d2-container>
 </template>
 
 <script>

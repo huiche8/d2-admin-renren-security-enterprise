@@ -1,5 +1,5 @@
 <template>
-  <el-card shadow="never" class="aui-card--fill">
+  <d2-container>
     <div class="mod-oss__oss">
       <el-form :inline="true" :model="dataForm">
         <el-form-item>
@@ -42,7 +42,7 @@
       <!-- 弹窗, 上传文件 -->
       <upload v-if="uploadVisible" ref="upload" @refreshDataList="getDataList"></upload>
     </div>
-  </el-card>
+  </d2-container>
 </template>
 
 <script>

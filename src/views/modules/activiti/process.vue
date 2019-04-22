@@ -1,5 +1,5 @@
 <template>
-  <el-card shadow="never" class="aui-card--fill">
+  <d2-container>
     <div class="mod-activiti__process">
       <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
         <el-form-item>
@@ -63,7 +63,7 @@
       <!-- 弹窗, 部署流程文件 -->
       <deploy v-if="deployVisible" ref="deploy" @refreshDataList="getDataList"></deploy>
     </div>
-  </el-card>
+  </d2-container>
 </template>
 
 <script>

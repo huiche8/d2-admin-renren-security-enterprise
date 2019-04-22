@@ -1,5 +1,5 @@
 <template>
-  <el-card shadow="never" class="aui-card--fill">
+  <d2-container>
     <div class="mod-sys__log-login">
       <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
         <el-form-item>
@@ -47,7 +47,7 @@
         @current-change="pageCurrentChangeHandle">
       </el-pagination>
     </div>
-  </el-card>
+  </d2-container>
 </template>
 
 <script>
