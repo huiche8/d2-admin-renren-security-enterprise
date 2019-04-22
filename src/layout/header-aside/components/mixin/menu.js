@@ -8,9 +8,11 @@ export default {
       } else if (/^https:\/\/|http:\/\//.test(index)) {
         open(index)
       } else {
-        this.$router.push({
-          path: index
-        })
+        // renren
+        var route = window.SITE_CONFIG['dynamicMenuRoutes'].filter(item => item.meta.menuId === index)[0]
+        if (route) {
+          this.$router.push({ name: route.name })
+        }
       }
     }
   }
