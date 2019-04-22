@@ -1,9 +1,7 @@
 <template>
   <el-submenu :index="menu.id || uniqueId">
     <template slot="title">
-      <i v-if="menu.icon" :class="`fa fa-${menu.icon}`"></i>
-      <i v-if="menu.icon === undefined & !menu.iconSvg" class="fa fa-folder-o"></i>
-      <d2-icon-svg v-if="menu.iconSvg" :name="menu.iconSvg"/>
+      <d2-icon-svg :name="menu.icon"/>
       <span slot="title">{{menu.name}}</span>
     </template>
     <template v-for="(child, childIndex) in menu.children">

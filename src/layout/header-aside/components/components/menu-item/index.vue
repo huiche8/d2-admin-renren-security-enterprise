@@ -1,8 +1,6 @@
 <template>
   <el-menu-item :index="menu.id || uniqueId">
-    <i v-if="menu.icon" :class="`fa fa-${menu.icon}`"></i>
-    <i v-if="menu.icon === undefined & !menu.iconSvg" class="fa fa-file-o"></i>
-    <d2-icon-svg v-if="menu.iconSvg" :name="menu.iconSvg"/>
+    <d2-icon-svg :name="menu.icon"/>
     <span slot="title">{{menu.name || '未命名菜单'}}</span>
   </el-menu-item>
 </template>

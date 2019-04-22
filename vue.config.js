@@ -78,9 +78,6 @@ module.exports = {
       .end()
       .use('svg-sprite-loader')
       .loader('svg-sprite-loader')
-      .options({
-        symbolId: 'd2-[name]'
-      })
       .end()
     // image exclude
     const imagesRule = config.module.rule('images')
