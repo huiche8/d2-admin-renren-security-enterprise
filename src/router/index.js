@@ -10,12 +10,12 @@ Vue.use(VueRouter)
  * 删除无用的 children 字段以及精简数据
  * @param {Array} menuArray 后台返回的菜单格式
  */
-function removeEmptyChildrenKey (menuArray) {
+function renrenMenuToD2AdminMenu (menuArray) {
   const transform = menu => ({
     ...menu.children.length > 0 ? { children: menu.children.map(e => transform(e)) } : {},
     id: menu.id,
     icon: menu.icon,
-    name: menu.name
+    title: menu.name
   })
   return menuArray.map(e => transform(e))
 }
@@ -76,13 +76,14 @@ router.beforeEach((to, from, next) => {
     .getNav()
     .then(res => {
       window.SITE_CONFIG['menuList'] = res
-      store.commit('d2admin/menu/asideSet', removeEmptyChildrenKey(res))
-      fnAddDynamicMenuRoutes(window.SITE_CONFIG['menuList'])
+      fnAddDynamicMenuRoutes(res)
+      store.commit('d2admin/menu/asideSet', renrenMenuToD2AdminMenu(res))
       next({
         ...to,
         replace: true
       })
-    }).catch(() => {
+    }).catch(error => {
+      console.log('error', error)
       next({
         name: 'login'
       })
@@ -130,6 +131,7 @@ function fnAddDynamicMenuRoutes (menuList = [], routes = []) {
         title: menuList[i].name
       }
     }
+    // TODO: 因为下面的 eval(s2) 导致暂时只能使用 window.SITE_CONFIG 全局变量。s2 的值中存在这短代码
     // eslint-disable-next-line
     let URL = (menuList[i].url || '').replace(/{{([^}}]+)?}}/g, (s1, s2) => eval(s2)) // URL支持{{ window.xxx }}占位符变量
     if (isURL(URL)) {
@@ -140,9 +142,6 @@ function fnAddDynamicMenuRoutes (menuList = [], routes = []) {
       route['path'] = route['name'] = URL.replace(/\//g, '-')
       route['component'] = () => import(`@/views/modules/${URL}`)
     }
-    console.group('fnAddDynamicMenuRoutes')
-    console.log(route.path)
-    console.groupEnd()
     routes.push(route)
   }
   if (temp.length >= 1) {

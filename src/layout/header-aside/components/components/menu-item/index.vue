@@ -1,7 +1,7 @@
 <template>
   <el-menu-item :index="menu.id || uniqueId">
     <d2-icon-svg :name="menu.icon"/>
-    <span slot="title">{{menu.name || '未命名菜单'}}</span>
+    <span slot="title">{{menu.title || '未命名菜单'}}</span>
   </el-menu-item>
 </template>
 
