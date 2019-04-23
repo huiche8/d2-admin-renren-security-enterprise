@@ -1,5 +1,5 @@
 <template>
-  <el-submenu :index="menu.id || uniqueId">
+  <el-submenu :index="menu.name || uniqueId">
     <template slot="title">
       <d2-icon-svg :name="menu.icon"/>
       <span slot="title">{{menu.title}}</span>

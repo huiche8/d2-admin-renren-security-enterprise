@@ -16,7 +16,8 @@ function renrenMenuToD2AdminMenu (menuArray, routeNameDict) {
     ...menu.children.length > 0 ? { children: menu.children.map(e => transform(e)) } : {},
     id: menu.id,
     icon: menu.icon,
-    title: menu.name
+    title: menu.name,
+    name: routeNameDict[menu.id]
   })
   return menuArray.map(e => transform(e))
 }
