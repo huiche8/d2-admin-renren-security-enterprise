@@ -2,14 +2,14 @@
   <el-dialog :visible.sync="visible" :title="!dataForm.id ? $t('add') : $t('update')" :close-on-click-modal="false" :close-on-press-escape="false">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="120px">
       <el-form-item prop="name" :label="$t('mail.name')">
-        <el-input v-model="dataForm.name" :placeholder="$t('mail.name')"></el-input>
+        <el-input v-model="dataForm.name" :placeholder="$t('mail.name')"/>
       </el-form-item>
       <el-form-item prop="subject" :label="$t('mail.subject')">
-        <el-input v-model="dataForm.subject" :placeholder="$t('mail.subject')"></el-input>
+        <el-input v-model="dataForm.subject" :placeholder="$t('mail.subject')"/>
       </el-form-item>
       <el-form-item prop="content" :label="$t('mail.content')">
         <!-- 富文本编辑器, 容器 -->
-        <div id="J_quillEditor"></div>
+        <div id="J_quillEditor"/>
         <!-- 自定义上传图片功能 (使用element upload组件) -->
         <el-upload
           :action="uploadUrl"

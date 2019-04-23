@@ -7,7 +7,7 @@
         </el-form-item>
       </el-form>
       <el-table v-loading="dataListLoading" :data="dataList" border style="width: 100%;">
-        <table-tree-column prop="name" :label="$t('menu.name')" header-align="center" width="150"></table-tree-column>
+        <table-tree-column prop="name" :label="$t('menu.name')" header-align="center" width="150"/>
         <el-table-column prop="icon" :label="$t('menu.icon')" header-align="center" align="center">
           <template slot-scope="scope">
             <svg class="icon-svg" aria-hidden="true"><use :xlink:href="`#${scope.row.icon}`"></use></svg>
@@ -19,9 +19,9 @@
             <el-tag v-else size="small" type="info">{{ $t('menu.type1') }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="sort" :label="$t('menu.sort')" header-align="center" align="center"></el-table-column>
-        <el-table-column prop="url" :label="$t('menu.url')" header-align="center" align="center" width="150" :show-overflow-tooltip="true" ></el-table-column>
-        <el-table-column prop="permissions" :label="$t('menu.permissions')" header-align="center" align="center" width="150" :show-overflow-tooltip="true"></el-table-column>
+        <el-table-column prop="sort" :label="$t('menu.sort')" header-align="center" align="center"/>
+        <el-table-column prop="url" :label="$t('menu.url')" header-align="center" align="center" width="150" :show-overflow-tooltip="true" />
+        <el-table-column prop="permissions" :label="$t('menu.permissions')" header-align="center" align="center" width="150" :show-overflow-tooltip="true"/>
         <el-table-column  :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
           <template slot-scope="scope">
             <el-button v-if="$hasPermission('sys:menu:update')" type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
@@ -30,7 +30,7 @@
         </el-table-column>
       </el-table>
       <!-- 弹窗, 新增 / 修改 -->
-      <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getDataList"></add-or-update>
+      <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getDataList"/>
     </div>
   </d2-container>
 </template>
@@ -40,7 +40,7 @@ import mixinViewModule from '@/mixins/view-module'
 import TableTreeColumn from '@/components/table-tree-column'
 import AddOrUpdate from './menu-add-or-update'
 export default {
-  mixins: [mixinViewModule],
+  mixins: [ mixinViewModule ],
   data () {
     return {
       mixinViewModuleOptions: {

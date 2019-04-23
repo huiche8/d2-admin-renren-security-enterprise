@@ -2,10 +2,10 @@
   <el-dialog :visible.sync="visible" :title="!dataForm.id ? $t('add') : $t('update')" :close-on-click-modal="false" :close-on-press-escape="false">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="120px">
       <el-form-item prop="name" :label="$t('role.name')">
-        <el-input v-model="dataForm.name" :placeholder="$t('role.name')"></el-input>
+        <el-input v-model="dataForm.name" :placeholder="$t('role.name')"/>
       </el-form-item>
       <el-form-item prop="remark" :label="$t('role.remark')">
-        <el-input v-model="dataForm.remark" :placeholder="$t('role.remark')"></el-input>
+        <el-input v-model="dataForm.remark" :placeholder="$t('role.remark')"/>
       </el-form-item>
       <el-row>
         <el-col :span="12">

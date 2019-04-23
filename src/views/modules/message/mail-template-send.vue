@@ -2,13 +2,13 @@
   <el-dialog :visible.sync="visible" :title="$t('mail.send')" :close-on-click-modal="false" :close-on-press-escape="false">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="120px">
       <el-form-item prop="mailTo" :label="$t('mail.mailTo')">
-        <el-input v-model="dataForm.mailTo" :placeholder="$t('mail.mailTo')"></el-input>
+        <el-input v-model="dataForm.mailTo" :placeholder="$t('mail.mailTo')"/>
       </el-form-item>
       <el-form-item prop="mailCc" :label="$t('mail.mailCc')">
-        <el-input v-model="dataForm.mailCc" :placeholder="$t('mail.mailCc')"></el-input>
+        <el-input v-model="dataForm.mailCc" :placeholder="$t('mail.mailCc')"/>
       </el-form-item>
       <el-form-item prop="params" :label="$t('mail.params')">
-        <el-input v-model="dataForm.params" :placeholder="$t('mail.paramsTips')"></el-input>
+        <el-input v-model="dataForm.params" :placeholder="$t('mail.paramsTips')"/>
       </el-form-item>
     </el-form>
     <template slot="footer">

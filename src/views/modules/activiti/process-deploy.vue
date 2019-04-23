@@ -8,8 +8,8 @@
       :before-upload="beforeUploadHandle"
       :on-success="successHandle"
       class="text-center">
-      <i class="el-icon-upload"></i>
-      <div class="el-upload__text" v-html="$t('upload.text')"></div>
+      <i class="el-icon-upload"/>
+      <div class="el-upload__text" v-html="$t('upload.text')"/>
       <div class="el-upload__tip" slot="tip">{{ $t('upload.tip', { 'format': 'zip、xml、bar、bpmn' }) }}</div>
     </el-upload>
   </el-dialog>

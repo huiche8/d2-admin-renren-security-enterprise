@@ -2,7 +2,7 @@
   <el-dialog :visible.sync="visible" :title="!dataForm.id ? $t('add') : $t('update')" :close-on-click-modal="false" :close-on-press-escape="false">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="120px">
       <el-form-item prop="name" :label="$t('dept.name')">
-        <el-input v-model="dataForm.name" :placeholder="$t('dept.name')"></el-input>
+        <el-input v-model="dataForm.name" :placeholder="$t('dept.name')"/>
       </el-form-item>
       <el-form-item prop="parentName" :label="$t('dept.parentName')" class="dept-list">
         <el-popover v-model="deptListVisible" ref="deptListPopover" placement="bottom-start" trigger="click">
@@ -27,7 +27,7 @@
         </el-input>
       </el-form-item>
       <el-form-item prop="sort" :label="$t('dept.sort')">
-        <el-input-number v-model="dataForm.sort" controls-position="right" :min="0" :label="$t('dept.sort')"></el-input-number>
+        <el-input-number v-model="dataForm.sort" controls-position="right" :min="0" :label="$t('dept.sort')"/>
       </el-form-item>
     </el-form>
     <template slot="footer">

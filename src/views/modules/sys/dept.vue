@@ -7,9 +7,9 @@
         </el-form-item>
       </el-form>
       <el-table v-loading="dataListLoading" :data="dataList" border style="width: 100%;">
-        <table-tree-column prop="name" :label="$t('dept.name')" header-align="center"></table-tree-column>
-        <el-table-column prop="parentName" :label="$t('dept.parentName')" header-align="center" align="center"></el-table-column>
-        <el-table-column prop="sort" :label="$t('dept.sort')" header-align="center" align="center" width="80"></el-table-column>
+        <table-tree-column prop="name" :label="$t('dept.name')" header-align="center"/>
+        <el-table-column prop="parentName" :label="$t('dept.parentName')" header-align="center" align="center"/>
+        <el-table-column prop="sort" :label="$t('dept.sort')" header-align="center" align="center" width="80"/>
         <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
           <template slot-scope="scope">
             <el-button v-if="$hasPermission('sys:dept:update')" type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
@@ -18,7 +18,7 @@
         </el-table-column>
       </el-table>
       <!-- 弹窗, 新增 / 修改 -->
-      <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getDataList"></add-or-update>
+      <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getDataList"/>
     </div>
   </d2-container>
 </template>
@@ -28,7 +28,7 @@ import mixinViewModule from '@/mixins/view-module'
 import TableTreeColumn from '@/components/table-tree-column'
 import AddOrUpdate from './dept-add-or-update'
 export default {
-  mixins: [mixinViewModule],
+  mixins: [ mixinViewModule ],
   data () {
     return {
       mixinViewModuleOptions: {

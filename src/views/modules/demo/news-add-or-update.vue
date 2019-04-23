@@ -2,11 +2,11 @@
   <el-dialog :visible.sync="visible" :title="!dataForm.id ? $t('add') : $t('update')" :close-on-click-modal="false" :close-on-press-escape="false">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="120px">
       <el-form-item prop="title" :label="$t('news.title')">
-        <el-input v-model="dataForm.title" :placeholder="$t('news.title')"></el-input>
+        <el-input v-model="dataForm.title" :placeholder="$t('news.title')"/>
       </el-form-item>
       <el-form-item prop="content" :label="$t('news.content')">
         <!-- 富文本编辑器, 容器 -->
-        <div id="J_quillEditor"></div>
+        <div id="J_quillEditor"/>
         <!-- 自定义上传图片功能 (使用element upload组件) -->
         <el-upload
           :action="uploadUrl"
@@ -18,7 +18,7 @@
         </el-upload>
       </el-form-item>
       <el-form-item prop="pubDate" :label="$t('news.pubDate')">
-        <el-date-picker v-model="dataForm.pubDate" type="datetime" value-format="yyyy-MM-dd HH:mm:ss" :placeholder="$t('news.pubDate')"></el-date-picker>
+        <el-date-picker v-model="dataForm.pubDate" type="datetime" value-format="yyyy-MM-dd HH:mm:ss" :placeholder="$t('news.pubDate')"/>
       </el-form-item>
     </el-form>
     <template slot="footer">

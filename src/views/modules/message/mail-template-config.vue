@@ -2,16 +2,16 @@
   <el-dialog :visible.sync="visible" :title="$t('mail.config')" :close-on-click-modal="false" :close-on-press-escape="false">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="120px">
       <el-form-item prop="smtp" :label="$t('mail.config')">
-        <el-input v-model="dataForm.smtp" :placeholder="$t('mail.config')"></el-input>
+        <el-input v-model="dataForm.smtp" :placeholder="$t('mail.config')"/>
       </el-form-item>
       <el-form-item prop="port" :label="$t('mail.port')">
-        <el-input v-model="dataForm.port" :placeholder="$t('mail.port')"></el-input>
+        <el-input v-model="dataForm.port" :placeholder="$t('mail.port')"/>
       </el-form-item>
       <el-form-item prop="username" :label="$t('mail.username')">
-        <el-input v-model="dataForm.username" :placeholder="$t('mail.username')"></el-input>
+        <el-input v-model="dataForm.username" :placeholder="$t('mail.username')"/>
       </el-form-item>
       <el-form-item prop="password" :label="$t('mail.password')">
-        <el-input v-model="dataForm.password" :placeholder="$t('mail.password')"></el-input>
+        <el-input v-model="dataForm.password" :placeholder="$t('mail.password')"/>
       </el-form-item>
     </el-form>
     <template slot="footer">

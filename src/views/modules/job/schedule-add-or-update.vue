@@ -2,16 +2,16 @@
   <el-dialog :visible.sync="visible" :title="!dataForm.id ? $t('add') : $t('update')" :close-on-click-modal="false" :close-on-press-escape="false">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="120px">
       <el-form-item prop="beanName" :label="$t('schedule.beanName')">
-        <el-input v-model="dataForm.beanName" :placeholder="$t('schedule.beanNameTips')"></el-input>
+        <el-input v-model="dataForm.beanName" :placeholder="$t('schedule.beanNameTips')"/>
       </el-form-item>
       <el-form-item prop="params" :label="$t('schedule.params')">
-        <el-input v-model="dataForm.params" :placeholder="$t('schedule.params')"></el-input>
+        <el-input v-model="dataForm.params" :placeholder="$t('schedule.params')"/>
       </el-form-item>
       <el-form-item prop="cronExpression" :label="$t('schedule.cronExpression')">
-        <el-input v-model="dataForm.cronExpression" :placeholder="$t('schedule.cronExpressionTips')"></el-input>
+        <el-input v-model="dataForm.cronExpression" :placeholder="$t('schedule.cronExpressionTips')"/>
       </el-form-item>
       <el-form-item prop="remark"  :label="$t('schedule.remark')">
-        <el-input v-model="dataForm.remark" :placeholder="$t('schedule.remark')"></el-input>
+        <el-input v-model="dataForm.remark" :placeholder="$t('schedule.remark')"/>
       </el-form-item>
     </el-form>
     <template slot="footer">

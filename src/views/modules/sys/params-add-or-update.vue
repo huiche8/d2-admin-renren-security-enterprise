@@ -2,13 +2,13 @@
   <el-dialog :visible.sync="visible" :title="!dataForm.id ? $t('add') : $t('update')" :close-on-click-modal="false" :close-on-press-escape="false">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="120px">
       <el-form-item prop="paramCode" :label="$t('params.paramCode')">
-        <el-input v-model="dataForm.paramCode" :placeholder="$t('params.paramCode')"></el-input>
+        <el-input v-model="dataForm.paramCode" :placeholder="$t('params.paramCode')"/>
       </el-form-item>
       <el-form-item prop="paramValue" :label="$t('params.paramValue')">
-        <el-input v-model="dataForm.paramValue" :placeholder="$t('params.paramValue')"></el-input>
+        <el-input v-model="dataForm.paramValue" :placeholder="$t('params.paramValue')"/>
       </el-form-item>
       <el-form-item prop="remark" :label="$t('params.remark')">
-        <el-input v-model="dataForm.remark" :placeholder="$t('params.remark')"></el-input>
+        <el-input v-model="dataForm.remark" :placeholder="$t('params.remark')"/>
       </el-form-item>
     </el-form>
     <template slot="footer">

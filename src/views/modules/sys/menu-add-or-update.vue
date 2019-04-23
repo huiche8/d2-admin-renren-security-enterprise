@@ -8,7 +8,7 @@
         </el-radio-group>
       </el-form-item>
       <el-form-item prop="name" :label="$t('menu.name')">
-        <el-input v-model="dataForm.name" :placeholder="$t('menu.name')"></el-input>
+        <el-input v-model="dataForm.name" :placeholder="$t('menu.name')"/>
       </el-form-item>
       <el-form-item prop="parentName" :label="$t('menu.parentName')" class="menu-list">
         <el-popover v-model="menuListVisible" ref="menuListPopover" placement="bottom-start" trigger="click">
@@ -24,17 +24,17 @@
           </el-tree>
         </el-popover>
         <el-input v-model="dataForm.parentName" v-popover:menuListPopover :readonly="true" :placeholder="$t('menu.parentName')">
-          <i v-if="dataForm.pid !== '0'" slot="suffix" @click.stop="deptListTreeSetDefaultHandle()" class="el-icon-circle-close el-input__icon"></i>
+          <i v-if="dataForm.pid !== '0'" slot="suffix" @click.stop="deptListTreeSetDefaultHandle()" class="el-icon-circle-close el-input__icon"/>
         </el-input>
       </el-form-item>
       <el-form-item v-if="dataForm.type === 0" prop="url" :label="$t('menu.url')">
-        <el-input v-model="dataForm.url" :placeholder="$t('menu.url')"></el-input>
+        <el-input v-model="dataForm.url" :placeholder="$t('menu.url')"/>
       </el-form-item>
       <el-form-item prop="sort" :label="$t('menu.sort')">
-        <el-input-number v-model="dataForm.sort" controls-position="right" :min="0" :label="$t('menu.sort')"></el-input-number>
+        <el-input-number v-model="dataForm.sort" controls-position="right" :min="0" :label="$t('menu.sort')"/>
       </el-form-item>
       <el-form-item prop="permissions" :label="$t('menu.permissions')">
-        <el-input v-model="dataForm.permissions" :placeholder="$t('menu.permissionsTips')"></el-input>
+        <el-input v-model="dataForm.permissions" :placeholder="$t('menu.permissionsTips')"/>
       </el-form-item>
       <el-form-item v-if="dataForm.type === 0" prop="icon" :label="$t('menu.icon')" class="icon-list">
         <el-popover v-model="iconListVisible" ref="iconListPopover" placement="bottom-start" trigger="click" popper-class="mod-sys__menu-icon-popover">
@@ -50,7 +50,7 @@
             </div>
           </div>
         </el-popover>
-        <el-input v-model="dataForm.icon" v-popover:iconListPopover :readonly="true" :placeholder="$t('menu.icon')"></el-input>
+        <el-input v-model="dataForm.icon" v-popover:iconListPopover :readonly="true" :placeholder="$t('menu.icon')"/>
       </el-form-item>
     </el-form>
     <template slot="footer">

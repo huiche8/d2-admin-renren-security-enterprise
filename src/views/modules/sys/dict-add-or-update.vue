@@ -2,19 +2,19 @@
   <el-dialog :visible.sync="visible" :title="!dataForm.id ? $t('add') : $t('update')" :close-on-click-modal="false" :close-on-press-escape="false">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="120px">
       <el-form-item prop="dictName" :label="$t('dict.dictName')">
-        <el-input v-model="dataForm.dictName" :placeholder="$t('dict.dictName')"></el-input>
+        <el-input v-model="dataForm.dictName" :placeholder="$t('dict.dictName')"/>
       </el-form-item>
       <el-form-item v-if="dataForm.pid === '0'" prop="dictType" :label="$t('dict.dictType')">
-        <el-input v-model="dataForm.dictType" :placeholder="$t('dict.dictType')"></el-input>
+        <el-input v-model="dataForm.dictType" :placeholder="$t('dict.dictType')"/>
       </el-form-item>
       <el-form-item v-if="dataForm.pid !== '0'" prop="dictValue" :label="$t('dict.dictValue')">
-        <el-input v-model="dataForm.dictValue" :placeholder="$t('dict.dictValue')"></el-input>
+        <el-input v-model="dataForm.dictValue" :placeholder="$t('dict.dictValue')"/>
       </el-form-item>
       <el-form-item prop="sort" :label="$t('dict.sort')">
-        <el-input-number v-model="dataForm.sort" controls-position="right" :min="0" :label="$t('dict.sort')"></el-input-number>
+        <el-input-number v-model="dataForm.sort" controls-position="right" :min="0" :label="$t('dict.sort')"/>
       </el-form-item>
       <el-form-item prop="remark" :label="$t('dict.remark')">
-        <el-input v-model="dataForm.remark" :placeholder="$t('dict.remark')"></el-input>
+        <el-input v-model="dataForm.remark" :placeholder="$t('dict.remark')"/>
       </el-form-item>
     </el-form>
     <template slot="footer">

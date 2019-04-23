@@ -2,10 +2,10 @@
   <el-dialog :visible.sync="visible" :title="$t('sms.send')" :close-on-click-modal="false" :close-on-press-escape="false">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="120px">
       <el-form-item prop="mobile" :label="$t('sms.mobile')">
-        <el-input v-model="dataForm.mobile" :placeholder="$t('sms.mobile')"></el-input>
+        <el-input v-model="dataForm.mobile" :placeholder="$t('sms.mobile')"/>
       </el-form-item>
       <el-form-item prop="params" :label="$t('sms.params')">
-        <el-input v-model="dataForm.params" :placeholder="$t('sms.paramsTips')"></el-input>
+        <el-input v-model="dataForm.params" :placeholder="$t('sms.paramsTips')"/>
       </el-form-item>
     </el-form>
     <template slot="footer">

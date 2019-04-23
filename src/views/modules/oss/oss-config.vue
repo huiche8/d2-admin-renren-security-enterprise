@@ -12,89 +12,89 @@
       </el-form-item>
       <template v-if="dataForm.type === 1">
         <el-form-item prop="qiniuDomain" :label="$t('oss.qiniuDomain')">
-          <el-input v-model="dataForm.qiniuDomain" :placeholder="$t('oss.qiniuDomainTips')"></el-input>
+          <el-input v-model="dataForm.qiniuDomain" :placeholder="$t('oss.qiniuDomainTips')"/>
         </el-form-item>
         <el-form-item prop="qiniuPrefix" :label="$t('oss.qiniuPrefix')">
-          <el-input v-model="dataForm.qiniuPrefix" :placeholder="$t('oss.qiniuPrefixTips')"></el-input>
+          <el-input v-model="dataForm.qiniuPrefix" :placeholder="$t('oss.qiniuPrefixTips')"/>
         </el-form-item>
         <el-form-item prop="qiniuAccessKey" :label="$t('oss.qiniuAccessKey')">
-          <el-input v-model="dataForm.qiniuAccessKey" :placeholder="$t('oss.qiniuAccessKeyTips')"></el-input>
+          <el-input v-model="dataForm.qiniuAccessKey" :placeholder="$t('oss.qiniuAccessKeyTips')"/>
         </el-form-item>
         <el-form-item prop="qiniuSecretKey" :label="$t('oss.qiniuSecretKey')">
-          <el-input v-model="dataForm.qiniuSecretKey" :placeholder="$t('oss.qiniuSecretKeyTips')"></el-input>
+          <el-input v-model="dataForm.qiniuSecretKey" :placeholder="$t('oss.qiniuSecretKeyTips')"/>
         </el-form-item>
         <el-form-item prop="qiniuBucketName" :label="$t('oss.qiniuBucketName')">
-          <el-input v-model="dataForm.qiniuBucketName" :placeholder="$t('oss.qiniuBucketNameTips')"></el-input>
+          <el-input v-model="dataForm.qiniuBucketName" :placeholder="$t('oss.qiniuBucketNameTips')"/>
         </el-form-item>
       </template>
       <template v-else-if="dataForm.type === 2">
         <el-form-item prop="aliyunDomain" :label="$t('oss.aliyunDomain')">
-          <el-input v-model="dataForm.aliyunDomain" :placeholder="$t('oss.aliyunDomainTips')"></el-input>
+          <el-input v-model="dataForm.aliyunDomain" :placeholder="$t('oss.aliyunDomainTips')"/>
         </el-form-item>
         <el-form-item prop="aliyunPrefix" :label="$t('oss.aliyunPrefix')">
-          <el-input v-model="dataForm.aliyunPrefix" :placeholder="$t('oss.aliyunPrefixTips')"></el-input>
+          <el-input v-model="dataForm.aliyunPrefix" :placeholder="$t('oss.aliyunPrefixTips')"/>
         </el-form-item>
         <el-form-item prop="aliyunEndPoint" :label="$t('oss.aliyunEndPoint')">
-          <el-input v-model="dataForm.aliyunEndPoint" :placeholder="$t('oss.aliyunEndPointTips')"></el-input>
+          <el-input v-model="dataForm.aliyunEndPoint" :placeholder="$t('oss.aliyunEndPointTips')"/>
         </el-form-item>
         <el-form-item prop="aliyunAccessKeyId" :label="$t('oss.aliyunAccessKeyId')">
-          <el-input v-model="dataForm.aliyunAccessKeyId" :placeholder="$t('oss.aliyunAccessKeyIdTips')"></el-input>
+          <el-input v-model="dataForm.aliyunAccessKeyId" :placeholder="$t('oss.aliyunAccessKeyIdTips')"/>
         </el-form-item>
         <el-form-item prop="aliyunAccessKeySecret" :label="$t('oss.aliyunAccessKeySecret')">
-          <el-input v-model="dataForm.aliyunAccessKeySecret" :placeholder="$t('oss.aliyunAccessKeySecretTips')"></el-input>
+          <el-input v-model="dataForm.aliyunAccessKeySecret" :placeholder="$t('oss.aliyunAccessKeySecretTips')"/>
         </el-form-item>
         <el-form-item prop="aliyunBucketName" :label="$t('oss.aliyunBucketName')">
-          <el-input v-model="dataForm.aliyunBucketName" :placeholder="$t('oss.aliyunBucketNameTips')"></el-input>
+          <el-input v-model="dataForm.aliyunBucketName" :placeholder="$t('oss.aliyunBucketNameTips')"/>
         </el-form-item>
       </template>
       <template v-else-if="dataForm.type === 3">
         <el-form-item prop="qcloudDomain" :label="$t('oss.qcloudDomain')">
-          <el-input v-model="dataForm.qcloudDomain" :placeholder="$t('oss.qcloudDomainTips')"></el-input>
+          <el-input v-model="dataForm.qcloudDomain" :placeholder="$t('oss.qcloudDomainTips')"/>
         </el-form-item>
         <el-form-item prop="qcloudPrefix" :label="$t('oss.qcloudPrefix')">
-          <el-input v-model="dataForm.qcloudPrefix" :placeholder="$t('oss.qcloudPrefixTips')"></el-input>
+          <el-input v-model="dataForm.qcloudPrefix" :placeholder="$t('oss.qcloudPrefixTips')"/>
         </el-form-item>
         <el-form-item prop="qcloudAppId" :label="$t('oss.qcloudAppId')">
-          <el-input v-model="dataForm.qcloudAppId" :placeholder="$t('oss.qcloudAppIdTips')"></el-input>
+          <el-input v-model="dataForm.qcloudAppId" :placeholder="$t('oss.qcloudAppIdTips')"/>
         </el-form-item>
         <el-form-item prop="qcloudSecretId" :label="$t('oss.qcloudSecretId')">
-          <el-input v-model="dataForm.qcloudSecretId" :placeholder="$t('oss.qcloudSecretIdTips')"></el-input>
+          <el-input v-model="dataForm.qcloudSecretId" :placeholder="$t('oss.qcloudSecretIdTips')"/>
         </el-form-item>
         <el-form-item prop="qcloudSecretKey" :label="$t('oss.qcloudSecretKey')">
-          <el-input v-model="dataForm.qcloudSecretKey" :placeholder="$t('oss.qcloudSecretKeyTips')"></el-input>
+          <el-input v-model="dataForm.qcloudSecretKey" :placeholder="$t('oss.qcloudSecretKeyTips')"/>
         </el-form-item>
         <el-form-item prop="qcloudBucketName" :label="$t('oss.qcloudBucketName')">
-          <el-input v-model="dataForm.qcloudBucketName" :placeholder="$t('oss.qcloudBucketNameTips')"></el-input>
+          <el-input v-model="dataForm.qcloudBucketName" :placeholder="$t('oss.qcloudBucketNameTips')"/>
         </el-form-item>
         <el-form-item prop="qcloudRegion" :label="$t('oss.qcloudRegion')">
           <el-select v-model="dataForm.qcloudRegion" clearable :placeholder="$t('oss.qcloudRegionTips')" class="w-percent-100">
-            <el-option value="ap-beijing-1" :label="$t('oss.qcloudRegionBeijing1')"></el-option>
-            <el-option value="ap-beijing" :label="$t('oss.qcloudRegionBeijing')"></el-option>
-            <el-option value="ap-shanghai" :label="$t('oss.qcloudRegionShanghai')"></el-option>
-            <el-option value="ap-guangzhou" :label="$t('oss.qcloudRegionGuangzhou')"></el-option>
-            <el-option value="ap-chengdu" :label="$t('oss.qcloudRegionChengdu')"></el-option>
-            <el-option value="ap-chongqing" :label="$t('oss.qcloudRegionChongqing')"></el-option>
-            <el-option value="ap-singapore" :label="$t('oss.qcloudRegionSingapore')"></el-option>
-            <el-option value="ap-hongkong" :label="$t('oss.qcloudRegionHongkong')"></el-option>
-            <el-option value="na-toronto" :label="$t('oss.qcloudRegionToronto')"></el-option>
-            <el-option value="eu-frankfurt" :label="$t('oss.qcloudRegionFrankfurt')"></el-option>
+            <el-option value="ap-beijing-1" :label="$t('oss.qcloudRegionBeijing1')"/>
+            <el-option value="ap-beijing" :label="$t('oss.qcloudRegionBeijing')"/>
+            <el-option value="ap-shanghai" :label="$t('oss.qcloudRegionShanghai')"/>
+            <el-option value="ap-guangzhou" :label="$t('oss.qcloudRegionGuangzhou')"/>
+            <el-option value="ap-chengdu" :label="$t('oss.qcloudRegionChengdu')"/>
+            <el-option value="ap-chongqing" :label="$t('oss.qcloudRegionChongqing')"/>
+            <el-option value="ap-singapore" :label="$t('oss.qcloudRegionSingapore')"/>
+            <el-option value="ap-hongkong" :label="$t('oss.qcloudRegionHongkong')"/>
+            <el-option value="na-toronto" :label="$t('oss.qcloudRegionToronto')"/>
+            <el-option value="eu-frankfurt" :label="$t('oss.qcloudRegionFrankfurt')"/>
           </el-select>
         </el-form-item>
       </template>
       <template v-else-if="dataForm.type === 4">
         <el-form-item prop="fastdfsDomain" :label="$t('oss.fastdfsDomain')">
-          <el-input v-model="dataForm.fastdfsDomain" :placeholder="$t('oss.fastdfsDomainTips')"></el-input>
+          <el-input v-model="dataForm.fastdfsDomain" :placeholder="$t('oss.fastdfsDomainTips')"/>
         </el-form-item>
       </template>
       <template v-else-if="dataForm.type === 5">
         <el-form-item prop="localDomain" :label="$t('oss.localDomain')">
-          <el-input v-model="dataForm.localDomain" :placeholder="$t('oss.localDomainTips')"></el-input>
+          <el-input v-model="dataForm.localDomain" :placeholder="$t('oss.localDomainTips')"/>
         </el-form-item>
         <el-form-item prop="localPrefix" :label="$t('oss.localPrefix')">
-          <el-input v-model="dataForm.localPrefix" :placeholder="$t('oss.localPrefixTips')"></el-input>
+          <el-input v-model="dataForm.localPrefix" :placeholder="$t('oss.localPrefixTips')"/>
         </el-form-item>
         <el-form-item prop="localPath" :label="$t('oss.localPath')">
-          <el-input v-model="dataForm.localPath" :placeholder="$t('oss.localPathTips')"></el-input>
+          <el-input v-model="dataForm.localPath" :placeholder="$t('oss.localPathTips')"/>
         </el-form-item>
       </template>
     </el-form>
