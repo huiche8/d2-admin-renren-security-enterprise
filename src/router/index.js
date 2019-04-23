@@ -20,6 +20,26 @@ function renrenMenuToD2AdminMenu (menuArray) {
   return menuArray.map(e => transform(e))
 }
 
+/**
+ * 将后台传来的菜单数据整理成 [{ id: name }] 的键值对数组
+ * @param {Array} menuArray 后台返回的菜单格式
+ */
+function renrenMenuToRouteNameDict (menuArray) {
+  const dict = {}
+  const step = menu => {
+    if (menu.id) {
+      Object.defineProperty(dict, menu.id, {
+        value: menu.name
+      })
+    }
+    if (menu.children.length > 0) {
+      menu.children.forEach(step)
+    }
+  }
+  menuArray.forEach(step)
+  console.log('dict', dict)
+}
+
 // 页面路由(独立页面)
 export const pageRoutes = [
   {
@@ -78,6 +98,7 @@ router.beforeEach((to, from, next) => {
       window.SITE_CONFIG['menuList'] = res
       fnAddDynamicMenuRoutes(res)
       store.commit('d2admin/menu/asideSet', renrenMenuToD2AdminMenu(res))
+      renrenMenuToRouteNameDict(res)
       next({
         ...to,
         replace: true
