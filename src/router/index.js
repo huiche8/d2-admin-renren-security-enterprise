@@ -9,8 +9,9 @@ Vue.use(VueRouter)
 /**
  * 删除无用的 children 字段以及精简数据
  * @param {Array} menuArray 后台返回的菜单格式
+ * @param {Array} routeNameDict renrenMenuToRouteNameDict 生成的菜单名称和 id 的对照表
  */
-function renrenMenuToD2AdminMenu (menuArray) {
+function renrenMenuToD2AdminMenu (menuArray, routeNameDict) {
   const transform = menu => ({
     ...menu.children.length > 0 ? { children: menu.children.map(e => transform(e)) } : {},
     id: menu.id,
@@ -21,15 +22,16 @@ function renrenMenuToD2AdminMenu (menuArray) {
 }
 
 /**
- * 将后台传来的菜单数据整理成 [{ id: name }] 的键值对数组
+ * 将后台传来的菜单数据整理成 [{ id: routeName }] 的键值对数组
  * @param {Array} menuArray 后台返回的菜单格式
  */
 function renrenMenuToRouteNameDict (menuArray) {
   const dict = {}
   const step = menu => {
-    if (menu.id) {
+    var route = window.SITE_CONFIG['dynamicMenuRoutes'].filter(item => item.meta.menuId === menu.id)[0]
+    if (route) {
       Object.defineProperty(dict, menu.id, {
-        value: menu.name
+        value: route.name
       })
     }
     if (menu.children.length > 0) {
@@ -37,7 +39,10 @@ function renrenMenuToRouteNameDict (menuArray) {
     }
   }
   menuArray.forEach(step)
-  console.log('dict', dict)
+  console.group('renrenMenuToRouteNameDict')
+  console.log('dict: ', dict)
+  console.groupEnd()
+  return dict
 }
 
 // 页面路由(独立页面)
@@ -97,8 +102,8 @@ router.beforeEach((to, from, next) => {
     .then(res => {
       window.SITE_CONFIG['menuList'] = res
       fnAddDynamicMenuRoutes(res)
-      store.commit('d2admin/menu/asideSet', renrenMenuToD2AdminMenu(res))
-      renrenMenuToRouteNameDict(res)
+      const routeNameDict = renrenMenuToRouteNameDict(res)
+      store.commit('d2admin/menu/asideSet', renrenMenuToD2AdminMenu(res, routeNameDict))
       next({
         ...to,
         replace: true
