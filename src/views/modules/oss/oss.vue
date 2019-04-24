@@ -1,6 +1,6 @@
 <template>
   <d2-container>
-    <el-form :inline="true" :model="dataForm">
+    <el-form :inline="true" size="mini" :model="dataForm">
       <el-form-item>
         <el-button type="primary" @click="configHandle()">{{ $t('oss.config') }}</el-button>
       </el-form-item>

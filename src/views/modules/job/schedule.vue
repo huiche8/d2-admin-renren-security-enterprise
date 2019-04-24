@@ -1,6 +1,6 @@
 <template>
   <d2-container>
-    <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
+    <el-form :inline="true" size="mini" :model="dataForm" @keyup.enter.native="getDataList()">
       <el-form-item>
         <el-input v-model="dataForm.beanName" :placeholder="$t('schedule.beanName')" clearable/>
       </el-form-item>

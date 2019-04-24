@@ -1,25 +1,23 @@
 <template>
   <d2-container>
-    <div class="mod-sys__dept">
-      <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
-        <el-form-item>
-          <el-button v-if="$hasPermission('sys:dept:save')" type="primary" @click="addOrUpdateHandle()">{{ $t('add') }}</el-button>
-        </el-form-item>
-      </el-form>
-      <el-table v-loading="dataListLoading" :data="dataList" border style="width: 100%;">
-        <table-tree-column prop="name" :label="$t('dept.name')" header-align="center"/>
-        <el-table-column prop="parentName" :label="$t('dept.parentName')" header-align="center" align="center"/>
-        <el-table-column prop="sort" :label="$t('dept.sort')" header-align="center" align="center" width="80"/>
-        <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
-          <template slot-scope="scope">
-            <el-button v-if="$hasPermission('sys:dept:update')" type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
-            <el-button v-if="$hasPermission('sys:dept:delete')" type="text" size="small" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-      <!-- 弹窗, 新增 / 修改 -->
-      <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getDataList"/>
-    </div>
+    <el-form :inline="true" size="mini" :model="dataForm" @keyup.enter.native="getDataList()">
+      <el-form-item>
+        <el-button v-if="$hasPermission('sys:dept:save')" type="primary" @click="addOrUpdateHandle()">{{ $t('add') }}</el-button>
+      </el-form-item>
+    </el-form>
+    <el-table v-loading="dataListLoading" :data="dataList" border style="width: 100%;">
+      <table-tree-column prop="name" :label="$t('dept.name')" header-align="center"/>
+      <el-table-column prop="parentName" :label="$t('dept.parentName')" header-align="center" align="center"/>
+      <el-table-column prop="sort" :label="$t('dept.sort')" header-align="center" align="center" width="80"/>
+      <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
+        <template slot-scope="scope">
+          <el-button v-if="$hasPermission('sys:dept:update')" type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
+          <el-button v-if="$hasPermission('sys:dept:delete')" type="text" size="small" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <!-- 弹窗, 新增 / 修改 -->
+    <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getDataList"/>
   </d2-container>
 </template>
 

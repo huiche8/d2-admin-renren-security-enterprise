@@ -1,6 +1,6 @@
 <template>
   <d2-container>
-    <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
+    <el-form :inline="true" size="mini" :model="dataForm" @keyup.enter.native="getDataList()">
       <el-form-item>
         <el-input v-model="dataForm.paramCode" :placeholder="$t('params.paramCode')" clearable/>
       </el-form-item>
