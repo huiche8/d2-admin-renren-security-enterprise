@@ -7,16 +7,12 @@ import i18n from '@/i18n'
 import d2Admin from '@/plugin/d2admin'
 // store
 import store from '@/store/index'
-
 // [ 可选组件 ]D2-Crud
 import D2Crud from '@d2-projects/d2-crud'
-
 // 菜单和路由设置
 import router from './router'
-
 // 核心插件
 Vue.use(d2Admin)
-
 // 可选插件组件
 Vue.use(D2Crud)
 
@@ -25,35 +21,6 @@ new Vue({
   router,
   store,
   render: h => h(App),
-  created () {
-    // 处理路由 得到每一级的路由设置
-    // this.$store.commit('d2admin/page/init', [
-    //   {
-    //     path: '/',
-    //     redirect: { name: 'index' },
-    //     component: '...',
-    //     children: [
-    //       // 首页
-    //       {
-    //         path: 'index',
-    //         name: 'index',
-    //         meta: {
-    //           auth: true
-    //         },
-    //         component: '...'
-    //       }
-    //     ]
-    //   }
-    // ])
-    // 初始化菜单搜索功能
-    this.$store.commit('d2admin/search/init', [
-      {
-        path: '/index',
-        title: '首页',
-        icon: 'home'
-      }
-    ])
-  },
   mounted () {
     // 展示系统信息
     this.$store.commit('d2admin/releases/versionShow')
