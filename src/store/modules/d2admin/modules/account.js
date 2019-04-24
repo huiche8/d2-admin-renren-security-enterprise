@@ -12,8 +12,6 @@ export default {
      */
     login ({ dispatch }, userInfo) {
       return new Promise(async resolve => {
-        // TODO: renren 返回的信息里没有 uuid
-        cookieSet('uuid', 'xxxx-xxxx-xxxx-xxxx-xxxx')
         cookieSet('token', userInfo.token)
         // 用户登录后从持久化数据加载一系列的设置
         await dispatch('load')
@@ -31,9 +29,8 @@ export default {
        * @description 注销
        */
       async function logout () {
-        // 删除cookie
         cookieRemove('token')
-        cookieRemove('uuid')
+        window.SITE_CONFIG['dynamicMenuRoutesHasAdded'] = false
         // 跳转路由
         router.push({
           name: 'login'

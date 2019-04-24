@@ -1,21 +1,9 @@
-import { cookieRemove } from '@/common/cookie'
-
 /**
  * 权限
  * @param {*} key
  */
 export function hasPermission (key) {
   return window.SITE_CONFIG['permissions'].indexOf(key) !== -1 || false
-}
-
-/**
- * 清除登录信息
- */
-export function clearLoginInfo () {
-  // TODO: resetStore 方法
-  // store.commit('resetStore')
-  cookieRemove('token')
-  window.SITE_CONFIG['dynamicMenuRoutesHasAdded'] = false
 }
 
 /**
