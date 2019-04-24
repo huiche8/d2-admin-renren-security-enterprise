@@ -14,7 +14,13 @@
         <el-button type="info" @click="exportHandle()">{{ $t('export') }}</el-button>
       </el-form-item>
     </el-form>
-    <el-table v-loading="dataListLoading" :data="dataList" border @sort-change="dataListSortChangeHandle" style="width: 100%;">
+    <el-table
+      size="mini"
+      v-loading="dataListLoading"
+      :data="dataList"
+      border
+      @sort-change="dataListSortChangeHandle"
+      style="width: 100%;">
       <el-table-column prop="creatorName" :label="$t('logOperation.creatorName')" header-align="center" align="center"/>
       <el-table-column prop="operation" :label="$t('logOperation.operation')" header-align="center" align="center"/>
       <el-table-column prop="requestUri" :label="$t('logOperation.requestUri')" header-align="center" align="center"/>
@@ -27,8 +33,8 @@
       </el-table-column>
       <el-table-column prop="status" :label="$t('logOperation.status')" sortable="custom" header-align="center" align="center">
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.status === 0" size="small" type="danger">{{ $t('logOperation.status0') }}</el-tag>
-          <el-tag v-else size="small" type="success">{{ $t('logOperation.status1') }}</el-tag>
+          <el-tag v-if="scope.row.status === 0" size="mini" type="danger">{{ $t('logOperation.status0') }}</el-tag>
+          <el-tag v-else size="mini" type="success">{{ $t('logOperation.status1') }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column prop="ip" :label="$t('logOperation.ip')" header-align="center" align="center"/>

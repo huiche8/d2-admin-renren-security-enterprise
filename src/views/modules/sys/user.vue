@@ -18,6 +18,7 @@
       </el-form-item>
     </el-form>
     <el-table
+      size="mini"
       v-loading="dataListLoading"
       :data="dataList"
       border
@@ -31,15 +32,15 @@
       <el-table-column prop="mobile" :label="$t('user.mobile')" sortable="custom" header-align="center" align="center"/>
       <el-table-column prop="status" :label="$t('user.status')" sortable="custom" header-align="center" align="center">
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.status === 0" size="small" type="danger">{{ $t('user.status0') }}</el-tag>
-          <el-tag v-else size="small" type="success">{{ $t('user.status1') }}</el-tag>
+          <el-tag v-if="scope.row.status === 0" size="mini" type="danger">{{ $t('user.status0') }}</el-tag>
+          <el-tag v-else size="mini" type="success">{{ $t('user.status1') }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column prop="createDate" :label="$t('user.createDate')" sortable="custom" header-align="center" align="center" width="180"/>
       <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
         <template slot-scope="scope">
-          <el-button v-if="$hasPermission('sys:user:update')" type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
-          <el-button v-if="$hasPermission('sys:user:delete')" type="text" size="small" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
+          <el-button v-if="$hasPermission('sys:user:update')" type="text" size="mini" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
+          <el-button v-if="$hasPermission('sys:user:delete')" type="text" size="mini" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
         </template>
       </el-table-column>
     </el-table>

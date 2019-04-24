@@ -27,6 +27,7 @@
       </el-form-item>
     </el-form>
     <el-table
+      size="mini"
       v-loading="dataListLoading"
       :data="dataList"
       border
@@ -40,17 +41,17 @@
       <el-table-column prop="remark" :label="$t('schedule.remark')" header-align="center" align="center"/>
       <el-table-column prop="status" :label="$t('schedule.status')" sortable="custom" header-align="center" align="center">
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.status === 1" size="small">{{ $t('schedule.status1') }}</el-tag>
-          <el-tag v-else size="small" type="danger">{{ $t('schedule.status0') }}</el-tag>
+          <el-tag v-if="scope.row.status === 1" size="mini">{{ $t('schedule.status1') }}</el-tag>
+          <el-tag v-else size="mini" type="danger">{{ $t('schedule.status0') }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
         <template slot-scope="scope">
-          <el-button v-if="$hasPermission('sys:schedule:update')" type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
-          <el-button v-if="$hasPermission('sys:schedule:pause')" type="text" size="small" @click="pauseHandle(scope.row.id)">{{ $t('schedule.pause') }}</el-button>
-          <el-button v-if="$hasPermission('sys:schedule:resume')" type="text" size="small" @click="resumeHandle(scope.row.id)">{{ $t('schedule.resume') }}</el-button>
-          <el-button v-if="$hasPermission('sys:schedule:run')" type="text" size="small" @click="runHandle(scope.row.id)">{{ $t('schedule.run') }}</el-button>
-          <el-button v-if="$hasPermission('sys:schedule:delete')" type="text" size="small" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
+          <el-button v-if="$hasPermission('sys:schedule:update')" type="text" size="mini" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
+          <el-button v-if="$hasPermission('sys:schedule:pause')" type="text" size="mini" @click="pauseHandle(scope.row.id)">{{ $t('schedule.pause') }}</el-button>
+          <el-button v-if="$hasPermission('sys:schedule:resume')" type="text" size="mini" @click="resumeHandle(scope.row.id)">{{ $t('schedule.resume') }}</el-button>
+          <el-button v-if="$hasPermission('sys:schedule:run')" type="text" size="mini" @click="runHandle(scope.row.id)">{{ $t('schedule.run') }}</el-button>
+          <el-button v-if="$hasPermission('sys:schedule:delete')" type="text" size="mini" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
         </template>
       </el-table-column>
     </el-table>

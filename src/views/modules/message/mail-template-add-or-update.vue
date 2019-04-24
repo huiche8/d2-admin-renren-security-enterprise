@@ -17,7 +17,7 @@
           :before-upload="uploadBeforeUploadHandle"
           :on-success="uploadSuccessHandle"
           style="display: none;">
-          <el-button ref="uploadBtn" type="primary" size="small">{{ $t('upload.button') }}</el-button>
+          <el-button ref="uploadBtn" type="primary" size="mini">{{ $t('upload.button') }}</el-button>
         </el-upload>
       </el-form-item>
     </el-form>

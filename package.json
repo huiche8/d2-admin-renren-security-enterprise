@@ -21,7 +21,7 @@
     "better-scroll": "^1.12.1",
     "clipboard-polyfill": "^2.4.1",
     "dayjs": "^1.6.7",
-    "element-ui": "^2.4.11",
+    "element-ui": "2.4.7",
     "flex.css": "^1.1.7",
     "fuse.js": "^3.2.1",
     "hotkeys-js": "^3.3.6",

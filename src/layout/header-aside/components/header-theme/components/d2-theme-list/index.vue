@@ -1,5 +1,6 @@
 <template>
   <el-table
+    size="mini"
     :data="list"
     v-bind="table">
     <el-table-column

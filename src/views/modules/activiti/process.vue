@@ -18,6 +18,7 @@
       </el-form-item>
     </el-form>
     <el-table
+      size="mini"
       v-loading="dataListLoading"
       :data="dataList"
       border
@@ -43,10 +44,10 @@
       <el-table-column prop="deploymentTime" :label="$t('process.deploymentTime')" header-align="center" align="center" width="180"/>
       <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
         <template slot-scope="scope">
-          <el-button v-if="scope.row.suspended" type="text" size="small" @click="activeHandle(scope.row.id)">{{ $t('process.active') }}</el-button>
-          <el-button v-else type="text" size="small" @click="suspendHandle(scope.row.id)">{{ $t('process.suspend') }}</el-button>
-          <el-button type="text" size="small" @click="deleteHandle(scope.row.deploymentId)">{{ $t('delete') }}</el-button>
-          <el-button type="text" size="small" @click="convertToModelHandle(scope.row.id)">{{ $t('process.convertToModel') }}</el-button>
+          <el-button v-if="scope.row.suspended" type="text" size="mini" @click="activeHandle(scope.row.id)">{{ $t('process.active') }}</el-button>
+          <el-button v-else type="text" size="mini" @click="suspendHandle(scope.row.id)">{{ $t('process.suspend') }}</el-button>
+          <el-button type="text" size="mini" @click="deleteHandle(scope.row.deploymentId)">{{ $t('delete') }}</el-button>
+          <el-button type="text" size="mini" @click="convertToModelHandle(scope.row.id)">{{ $t('process.convertToModel') }}</el-button>
         </template>
       </el-table-column>
     </el-table>

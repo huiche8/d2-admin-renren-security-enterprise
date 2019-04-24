@@ -21,6 +21,7 @@
       </el-form-item>
     </el-form>
     <el-table
+      size="mini"
       v-loading="dataListLoading"
       :data="dataList"
       border
@@ -35,14 +36,14 @@
       <el-table-column prop="subject" :label="$t('mail.subject')" header-align="center" align="center"/>
       <el-table-column prop="status" :label="$t('mail.status')" sortable="custom" header-align="center" align="center">
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.status === 1" size="small">{{ $t('mail.status1') }}</el-tag>
-          <el-tag v-else size="small" type="danger">{{ $t('mail.status0') }}</el-tag>
+          <el-tag v-if="scope.row.status === 1" size="mini">{{ $t('mail.status1') }}</el-tag>
+          <el-tag v-else size="mini" type="danger">{{ $t('mail.status0') }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column prop="createDate" :label="$t('mail.createDate')" sortable="custom" header-align="center" align="center" width="180"/>
       <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
         <template slot-scope="scope">
-          <el-button type="text" size="small" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
+          <el-button type="text" size="mini" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
         </template>
       </el-table-column>
     </el-table>

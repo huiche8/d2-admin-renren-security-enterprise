@@ -14,15 +14,21 @@
         <el-button v-if="$hasPermission('sys:params:delete')" type="danger" @click="deleteHandle()">{{ $t('deleteBatch') }}</el-button>
       </el-form-item>
     </el-form>
-    <el-table v-loading="dataListLoading" :data="dataList" border @selection-change="dataListSelectionChangeHandle" style="width: 100%;">
+    <el-table
+      size="mini"
+      v-loading="dataListLoading"
+      :data="dataList"
+      border
+      @selection-change="dataListSelectionChangeHandle"
+      style="width: 100%;">
       <el-table-column type="selection" header-align="center" align="center" width="50"/>
       <el-table-column prop="paramCode" :label="$t('params.paramCode')" header-align="center" align="center"/>
       <el-table-column prop="paramValue" :label="$t('params.paramValue')" header-align="center" align="center"/>
       <el-table-column prop="remark" :label="$t('params.remark')" header-align="center" align="center"/>
       <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
         <template slot-scope="scope">
-          <el-button v-if="$hasPermission('sys:params:update')" type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
-          <el-button v-if="$hasPermission('sys:params:delete')" type="text" size="small" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
+          <el-button v-if="$hasPermission('sys:params:update')" type="text" size="mini" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
+          <el-button v-if="$hasPermission('sys:params:delete')" type="text" size="mini" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
         </template>
       </el-table-column>
     </el-table>

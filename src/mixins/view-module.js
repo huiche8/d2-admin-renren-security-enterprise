@@ -33,9 +33,15 @@ export default {
       this.getDataList()
     }
   },
+  created () {
+    if (this.mixinViewModuleOptions.activatedIsNeed) {
+      this.getDataList()
+    }
+  },
   methods: {
     // 获取数据列表
     getDataList () {
+      console.log('getDataList')
       this.dataListLoading = true
       this.$axios.get(
         this.mixinViewModuleOptions.getDataListURL,
@@ -48,16 +54,15 @@ export default {
             ...this.dataForm
           }
         }
-      ).then(({ data: res }) => {
+      ).then(res => {
+        console.log('getDataList res', res)
         this.dataListLoading = false
-        if (res.code !== 0) {
-          this.dataList = []
-          this.total = 0
-          return this.$message.error(res.msg)
-        }
-        this.dataList = this.mixinViewModuleOptions.getDataListIsPage ? res.data.list : res.data
-        this.total = this.mixinViewModuleOptions.getDataListIsPage ? res.data.total : 0
-      }).catch(() => {
+        this.dataList = this.mixinViewModuleOptions.getDataListIsPage ? res.list : res
+        this.total = this.mixinViewModuleOptions.getDataListIsPage ? res.total : 0
+      }).catch(error => {
+        console.log('error', error)
+        this.dataList = []
+        this.total = 0
         this.dataListLoading = false
       })
     },
@@ -114,10 +119,7 @@ export default {
           this.mixinViewModuleOptions.deleteIsBatch ? {
             'data': id ? [id] : this.dataListSelections.map(item => item[this.mixinViewModuleOptions.deleteIsBatchKey])
           } : {}
-        ).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        ).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',

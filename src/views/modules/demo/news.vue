@@ -25,6 +25,7 @@
       </el-form-item>
     </el-form>
     <el-table
+      size="mini"
       v-loading="dataListLoading"
       :data="dataList"
       border
@@ -37,8 +38,8 @@
       <el-table-column prop="createDate" :label="$t('news.createDate')" sortable="custom" header-align="center" align="center" width="180"/>
       <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
         <template slot-scope="scope">
-          <el-button type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
-          <el-button type="text" size="small" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
+          <el-button type="text" size="mini" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
+          <el-button type="text" size="mini" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
         </template>
       </el-table-column>
     </el-table>

@@ -15,10 +15,6 @@ export default {
         // TODO: renren 返回的信息里没有 uuid
         cookieSet('uuid', 'xxxx-xxxx-xxxx-xxxx-xxxx')
         cookieSet('token', userInfo.token)
-        // 设置 vuex 用户信息
-        await dispatch('d2admin/user/set', {
-          name: 'D2Admin'
-        }, { root: true })
         // 用户登录后从持久化数据加载一系列的设置
         await dispatch('load')
         // 结束
@@ -38,8 +34,6 @@ export default {
         // 删除cookie
         cookieRemove('token')
         cookieRemove('uuid')
-        // 清空 vuex 用户信息
-        await dispatch('d2admin/user/set', {}, { root: true })
         // 跳转路由
         router.push({
           name: 'login'

@@ -12,6 +12,7 @@
       </el-form-item>
     </el-form>
     <el-table
+      size="mini"
       v-loading="dataListLoading"
       :data="dataList"
       border
@@ -23,13 +24,13 @@
       <el-table-column prop="activityId" :label="$t('running.activityId')" header-align="center" align="center"/>
       <el-table-column prop="suspended" :label="$t('running.suspended')" header-align="center" align="center">
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.suspended" size="small">{{ $t('running.suspended1') }}</el-tag>
-          <el-tag v-else size="small" type="danger">{{ $t('running.suspended0') }}</el-tag>
+          <el-tag v-if="scope.row.suspended" size="mini">{{ $t('running.suspended1') }}</el-tag>
+          <el-tag v-else size="mini" type="danger">{{ $t('running.suspended0') }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
         <template slot-scope="scope">
-          <el-button type="text" size="small" @click="deleteHandle(scope.row.processInstanceId)">{{ $t('delete') }}</el-button>
+          <el-button type="text" size="mini" @click="deleteHandle(scope.row.processInstanceId)">{{ $t('delete') }}</el-button>
         </template>
       </el-table-column>
     </el-table>

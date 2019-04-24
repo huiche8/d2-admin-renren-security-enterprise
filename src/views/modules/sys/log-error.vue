@@ -5,7 +5,13 @@
         <el-button type="info" @click="exportHandle()">{{ $t('export') }}</el-button>
       </el-form-item>
     </el-form>
-    <el-table v-loading="dataListLoading" :data="dataList" border @sort-change="dataListSortChangeHandle" style="width: 100%;">
+    <el-table
+      size="mini"
+      v-loading="dataListLoading"
+      :data="dataList"
+      border
+      @sort-change="dataListSortChangeHandle"
+      style="width: 100%;">
       <el-table-column prop="requestUri" :label="$t('logError.requestUri')" header-align="center" align="center"/>
       <el-table-column prop="requestMethod" :label="$t('logError.requestMethod')" header-align="center" align="center"/>
       <el-table-column prop="requestParams" :label="$t('logError.requestParams')" header-align="center" align="center" width="150" :show-overflow-tooltip="true"/>
@@ -14,7 +20,7 @@
       <el-table-column prop="createDate" :label="$t('logError.createDate')" sortable="custom" header-align="center" align="center" width="180"/>
       <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
         <template slot-scope="scope">
-          <el-button type="text" size="small" @click="infoHandle(scope.row.errorInfo)">{{ $t('logError.errorInfo') }}</el-button>
+          <el-button type="text" size="mini" @click="infoHandle(scope.row.errorInfo)">{{ $t('logError.errorInfo') }}</el-button>
         </template>
       </el-table-column>
     </el-table>

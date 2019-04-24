@@ -5,17 +5,23 @@
         <el-button v-if="$hasPermission('sys:menu:save')" type="primary" @click="addOrUpdateHandle()">{{ $t('add') }}</el-button>
       </el-form-item>
     </el-form>
-    <el-table v-loading="dataListLoading" :data="dataList" border style="width: 100%;">
+    <el-table
+      size="mini"
+      v-loading="dataListLoading"
+      :data="dataList"
+      border
+      row-key="id"
+      style="width: 100%;">
       <table-tree-column prop="name" :label="$t('menu.name')" header-align="center" width="150"/>
       <el-table-column prop="icon" :label="$t('menu.icon')" header-align="center" align="center">
         <template slot-scope="scope">
-          <svg class="icon-svg" aria-hidden="true"><use :xlink:href="`#${scope.row.icon}`"></use></svg>
+          <d2-icon-svg class="icon-svg" v-if="scope.row.icon" :name="scope.row.icon"/>
         </template>
       </el-table-column>
       <el-table-column prop="type" :label="$t('menu.type')" header-align="center" align="center">
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.type === 0" size="small">{{ $t('menu.type0') }}</el-tag>
-          <el-tag v-else size="small" type="info">{{ $t('menu.type1') }}</el-tag>
+          <el-tag v-if="scope.row.type === 0" size="mini">{{ $t('menu.type0') }}</el-tag>
+          <el-tag v-else size="mini" type="info">{{ $t('menu.type1') }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column prop="sort" :label="$t('menu.sort')" header-align="center" align="center"/>
@@ -23,8 +29,8 @@
       <el-table-column prop="permissions" :label="$t('menu.permissions')" header-align="center" align="center" width="150" :show-overflow-tooltip="true"/>
       <el-table-column  :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
         <template slot-scope="scope">
-          <el-button v-if="$hasPermission('sys:menu:update')" type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
-          <el-button v-if="$hasPermission('sys:menu:delete')" type="text" size="small" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
+          <el-button v-if="$hasPermission('sys:menu:update')" type="text" size="mini" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
+          <el-button v-if="$hasPermission('sys:menu:delete')" type="text" size="mini" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
         </template>
       </el-table-column>
     </el-table>

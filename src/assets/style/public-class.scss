@@ -65,3 +65,12 @@ $sizes: (0, 5, 10, 15, 20);
 .#{$prefix}-pr { padding-right: 20px !important; }
 .#{$prefix}-pb { padding-bottom: 20px !important; }
 .#{$prefix}-pl { padding-left: 20px !important; }
+
+// renren 图标
+.icon-svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: middle;
+  overflow: hidden;
+}

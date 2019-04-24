@@ -9,6 +9,7 @@
       </el-form-item>
     </el-form>
     <el-table
+      size="mini"
       v-loading="dataListLoading"
       :data="dataList"
       border
@@ -20,8 +21,8 @@
       <el-table-column prop="params" :label="$t('schedule.params')" header-align="center" align="center"/>
       <el-table-column prop="status" :label="$t('schedule.status')" header-align="center" align="center">
         <template slot-scope="scope">
-          <el-tag v-if="scope.row.status === 1" size="small">{{ $t('schedule.statusLog1') }}</el-tag>
-          <el-tag v-else type="danger" size="small" @click.native="showErrorInfo(scope.row.id)" style="cursor: pointer;">{{ $t('schedule.statusLog0') }}</el-tag>
+          <el-tag v-if="scope.row.status === 1" size="mini">{{ $t('schedule.statusLog1') }}</el-tag>
+          <el-tag v-else type="danger" size="mini" @click.native="showErrorInfo(scope.row.id)" style="cursor: pointer;">{{ $t('schedule.statusLog0') }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column prop="times" :label="$t('schedule.times')" header-align="center" align="center"/>
