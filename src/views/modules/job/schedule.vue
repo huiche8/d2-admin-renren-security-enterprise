@@ -45,7 +45,7 @@
           <el-tag v-else size="mini" type="danger">{{ $t('schedule.status0') }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
+      <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="200">
         <template slot-scope="scope">
           <el-button v-if="$hasPermission('sys:schedule:update')" type="text" size="mini" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
           <el-button v-if="$hasPermission('sys:schedule:pause')" type="text" size="mini" @click="pauseHandle(scope.row.id)">{{ $t('schedule.pause') }}</el-button>
