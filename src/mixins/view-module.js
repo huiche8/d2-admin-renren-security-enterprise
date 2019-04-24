@@ -41,7 +41,6 @@ export default {
   methods: {
     // 获取数据列表
     getDataList () {
-      console.log('getDataList')
       this.dataListLoading = true
       this.$axios.get(
         this.mixinViewModuleOptions.getDataListURL,
@@ -55,12 +54,10 @@ export default {
           }
         }
       ).then(res => {
-        console.log('getDataList res', res)
         this.dataListLoading = false
         this.dataList = this.mixinViewModuleOptions.getDataListIsPage ? res.list : res
         this.total = this.mixinViewModuleOptions.getDataListIsPage ? res.total : 0
-      }).catch(error => {
-        console.log('error', error)
+      }).catch(() => {
         this.dataList = []
         this.total = 0
         this.dataListLoading = false
