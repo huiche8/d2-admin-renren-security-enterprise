@@ -1,5 +1,6 @@
 <template>
   <div
+    v-loading.fullscreen.lock="loading" :element-loading-text="$t('loading')"
     class="d2-layout-header-aside-group"
     :style="styleLayoutMainGroup"
     :class="{grayMode: grayActive}">
@@ -81,6 +82,7 @@
 </template>
 
 <script>
+import { sysMenuService, sysUserService } from '@/common/api'
 import d2MenuSide from './components/menu-side'
 import d2MenuHeader from './components/menu-header'
 import d2Tabs from './components/tabs'
@@ -90,7 +92,7 @@ import d2HeaderSize from './components/header-size'
 import d2HeaderTheme from './components/header-theme'
 import d2HeaderUser from './components/header-user'
 import d2HeaderLog from './components/header-log'
-import { mapState, mapGetters, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import mixinSearch from './mixins/search'
 export default {
   name: 'd2-layout-header-aside',
@@ -110,6 +112,8 @@ export default {
   },
   data () {
     return {
+      // 加载状态
+      loading: true,
       // [侧边栏宽度] 正常状态
       asideWidth: '200px',
       // [侧边栏宽度] 折叠状态
@@ -137,15 +141,43 @@ export default {
       }
     }
   },
+  created () {
+    Promise.all([
+      this.getUserInfo(),
+      this.getPermissions()
+    ]).then(() => {
+      this.loading = false
+    })
+  },
   methods: {
     ...mapActions('d2admin/menu', [
       'asideCollapseToggle'
     ]),
+    ...mapMutations('d2admin/user', {
+      userInfoSet: 'set'
+    }),
     /**
      * 接收点击切换侧边栏的按钮
      */
     handleToggleAside () {
       this.asideCollapseToggle()
+    },
+    // [ renren ] 获取当前管理员信息
+    getUserInfo () {
+      return sysUserService
+        .getInfo()
+        .then(res => {
+          this.userInfoSet(res)
+        })
+        .catch(() => {})
+    },
+    // [ renren ] 获取权限
+    getPermissions () {
+      return sysMenuService
+        .getPermissions()
+        .then(res => {
+          window.SITE_CONFIG['permissions'] = res
+        }).catch(() => {})
     }
   }
 }

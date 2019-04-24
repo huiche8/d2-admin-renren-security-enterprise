@@ -146,15 +146,10 @@ router.beforeEach((to, from, next) => {
       store.commit('d2admin/menu/asideSet', renrenMenuToD2AdminMenu(res, routeNameDict))
       store.commit('d2admin/page/init', renrenMenuToD2AdminPageInitData(res, routeNameDict, routePathDict))
       store.commit('d2admin/search/init', renrenMenuToD2AdminSearchInitData(res, routeNameDict, routePathDict))
-      next({
-        ...to,
-        replace: true
-      })
+      next({ ...to, replace: true })
     }).catch(error => {
       console.log('error', error)
-      next({
-        name: 'login'
-      })
+      next({ name: 'login' })
     })
 })
 
