@@ -27,24 +27,24 @@ new Vue({
   render: h => h(App),
   created () {
     // 处理路由 得到每一级的路由设置
-    this.$store.commit('d2admin/page/init', [
-      {
-        path: '/',
-        redirect: { name: 'index' },
-        component: '...',
-        children: [
-          // 首页
-          {
-            path: 'index',
-            name: 'index',
-            meta: {
-              auth: true
-            },
-            component: '...'
-          }
-        ]
-      }
-    ])
+    // this.$store.commit('d2admin/page/init', [
+    //   {
+    //     path: '/',
+    //     redirect: { name: 'index' },
+    //     component: '...',
+    //     children: [
+    //       // 首页
+    //       {
+    //         path: 'index',
+    //         name: 'index',
+    //         meta: {
+    //           auth: true
+    //         },
+    //         component: '...'
+    //       }
+    //     ]
+    //   }
+    // ])
     // 初始化菜单搜索功能
     this.$store.commit('d2admin/search/init', [
       {
