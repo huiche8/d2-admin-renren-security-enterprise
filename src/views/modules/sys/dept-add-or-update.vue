@@ -19,7 +19,7 @@
         </el-popover>
         <el-input v-model="dataForm.parentName" v-popover:deptListPopover :readonly="true" :placeholder="$t('dept.parentName')">
           <i
-            v-if="$store.state.user.superAdmin === 1 && dataForm.pid !== '0'"
+            v-if="$store.state.d2admin.user.info.superAdmin === 1 && dataForm.pid !== '0'"
             slot="suffix"
             @click.stop="deptListTreeSetDefaultHandle()"
             class="el-icon-circle-close el-input__icon">
@@ -74,7 +74,7 @@ export default {
         this.getDeptList().then(() => {
           if (this.dataForm.id) {
             this.getInfo()
-          } else if (this.$store.state.user.superAdmin === 1) {
+          } else if (this.$store.state.d2admin.user.info.superAdmin === 1) {
             this.deptListTreeSetDefaultHandle()
           }
         })

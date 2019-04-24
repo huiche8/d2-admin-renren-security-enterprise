@@ -167,7 +167,11 @@ export default {
       return sysUserService
         .getInfo()
         .then(res => {
-          this.userInfoSet(res)
+          this.userInfoSet({
+            id: res.id,
+            name: res.username,
+            superAdmin: res.superAdmin
+          })
         })
         .catch(() => {})
     },
@@ -177,7 +181,8 @@ export default {
         .getPermissions()
         .then(res => {
           window.SITE_CONFIG['permissions'] = res
-        }).catch(() => {})
+        })
+        .catch(() => {})
     }
   }
 }
