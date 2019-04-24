@@ -1,5 +1,5 @@
 <template>
-  <d2-container>
+  <d2-container class="mod-sys__dept">
     <el-form :inline="true" size="mini" :model="dataForm" @keyup.enter.native="getDataList()">
       <el-form-item>
         <el-button v-if="$hasPermission('sys:dept:save')" type="primary" @click="addOrUpdateHandle()">{{ $t('add') }}</el-button>

@@ -1,5 +1,5 @@
 <template>
-  <d2-container>
+  <d2-container class="mod-sys__user">
     <el-form :inline="true" size="mini" :model="dataForm" @keyup.enter.native="getDataList()">
       <el-form-item>
         <el-input v-model="dataForm.username" :placeholder="$t('user.username')" clearable/>

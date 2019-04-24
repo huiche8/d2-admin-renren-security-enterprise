@@ -1,5 +1,5 @@
 <template>
-  <d2-container>
+  <d2-container class="mod-sys__log-error">
     <el-form :inline="true" size="mini" :model="dataForm" @keyup.enter.native="getDataList()">
       <el-form-item>
         <el-button type="info" @click="exportHandle()">{{ $t('export') }}</el-button>
