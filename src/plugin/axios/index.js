@@ -3,27 +3,13 @@ import { cookieGet } from '@/common/cookie'
 import { Message } from 'element-ui'
 import { isPlainObject } from 'lodash'
 import qs from 'qs'
-import { dangerLog } from '@/common/log'
 import store from '@/store'
 
 // 记录和显示错误
-function errorLog (error) {
-  // 添加到日志
-  store.dispatch('d2admin/log/push', {
-    message: '数据请求异常',
-    type: 'danger',
-    meta: {
-      error
-    }
-  })
-  // 打印到控制台
-  if (process.env.NODE_ENV === 'development') {
-    dangerLog('>>>>>> Error >>>>>>')
-    console.log(error)
-  }
+function errorLog (info) {
   // 显示提示
   Message({
-    message: error.message,
+    message: info,
     type: 'error',
     duration: 5 * 1000
   })
@@ -78,14 +64,14 @@ service.interceptors.response.use(response => {
   if (response.data.code === 401 || response.data.code === 10001) {
     store.dispatch('d2admin/account/logout')
     return Promise.reject(response.data.msg)
-  }
-  if (response.data.code !== 0) {
-    errorLog(new Error(response.data.msg))
+  } else if (response.data.code !== 0) {
+    errorLog(response.data.msg)
     return Promise.reject(response.data.msg)
+  } else {
+    return response.data.data
   }
-  return response.data.data
 }, error => {
-  errorLog(error)
+  errorLog(error.message)
   return Promise.reject(error)
 })
 

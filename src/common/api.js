@@ -63,5 +63,12 @@ export const sysUserService = {
     return request({
       url: '/sys/user/info'
     })
+  },
+  updatePassword (data) {
+    return request({
+      url: '/sys/user/password',
+      method: 'put',
+      data
+    })
   }
 }
