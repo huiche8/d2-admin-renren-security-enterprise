@@ -11,13 +11,13 @@
         <span>{{ $store.state.d2admin.user.info.name }}</span>
       </el-form-item>
       <el-form-item prop="password" :label="$t('updatePassword.password')">
-        <el-input v-model="dataForm.password" type="password" :placeholder="$t('updatePassword.password')"></el-input>
+        <el-input v-model="dataForm.password" type="password" :placeholder="$t('updatePassword.password')"/>
       </el-form-item>
       <el-form-item prop="newPassword" :label="$t('updatePassword.newPassword')">
-        <el-input v-model="dataForm.newPassword" type="password" :placeholder="$t('updatePassword.newPassword')"></el-input>
+        <el-input v-model="dataForm.newPassword" type="password" :placeholder="$t('updatePassword.newPassword')"/>
       </el-form-item>
       <el-form-item prop="comfirmPassword" :label="$t('updatePassword.comfirmPassword')">
-        <el-input v-model="dataForm.comfirmPassword" type="password" :placeholder="$t('updatePassword.comfirmPassword')"></el-input>
+        <el-input v-model="dataForm.comfirmPassword" type="password" :placeholder="$t('updatePassword.comfirmPassword')"/>
       </el-form-item>
     </el-form>
     <template slot="footer">
