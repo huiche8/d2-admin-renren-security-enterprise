@@ -1,11 +1,12 @@
 <template>
   <el-dialog
+    width="400px"
     :visible.sync="visible"
     :title="$t('updatePassword.title')"
     :close-on-click-modal="false"
     :close-on-press-escape="false"
     :append-to-body="true">
-    <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="120px">
+    <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" label-width="100px">
       <el-form-item :label="$t('updatePassword.username')">
         <span>{{ $store.state.d2admin.user.info.name }}</span>
       </el-form-item>
