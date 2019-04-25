@@ -30,6 +30,7 @@
           <d2-header-search @click="handleSearchClick"/>
           <d2-header-fullscreen/>
           <d2-header-theme/>
+          <d2-header-lang/>
           <d2-header-user/>
         </div>
       </div>
@@ -88,6 +89,7 @@ import d2HeaderFullscreen from './components/header-fullscreen'
 import d2HeaderSearch from './components/header-search'
 import d2HeaderTheme from './components/header-theme'
 import d2HeaderUser from './components/header-user'
+import d2HeaderLang from './components/header-lang'
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import mixinSearch from './mixins/search'
 export default {
@@ -102,7 +104,8 @@ export default {
     d2HeaderFullscreen,
     d2HeaderSearch,
     d2HeaderTheme,
-    d2HeaderUser
+    d2HeaderUser,
+    d2HeaderLang
   },
   data () {
     return {
