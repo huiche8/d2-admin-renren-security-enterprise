@@ -19,7 +19,7 @@ function pathInit ({
   validator = () => true,
   defaultValue = ''
 }) {
-  const uuid = cookieGet('uuid') || 'ghost-uuid'
+  const uuid = cookieGet('uuid') || 'ghost'
   const currentPath = `${dbName}.${user ? `user.${uuid}` : 'public'}${path ? `.${path}` : ''}`
   const value = db.get(currentPath).value()
   if (!(value !== undefined && validator(value))) {
