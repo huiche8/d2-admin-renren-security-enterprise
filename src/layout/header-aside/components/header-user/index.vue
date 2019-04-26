@@ -1,14 +1,14 @@
 <template>
   <el-dropdown size="small" class="d2-mr">
-    <span class="btn-text">{{info.name ? `你好 ${info.name}` : '未登录'}}</span>
+    <span class="btn-text">{{info.name ? `${$t('headerUser.hello')} ${info.name}` : ''}}</span>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item @click.native="logOff">
         <d2-icon name="power-off" class="d2-mr-5"/>
-        注销
+        {{$t('headerUser.logout')}}
       </el-dropdown-item>
       <el-dropdown-item @click.native="resetPassword">
         <d2-icon name="key" class="d2-mr-5"/>
-        修改密码
+        {{$t('headerUser.updatePassword')}}
       </el-dropdown-item>
     </el-dropdown-menu>
     <d2-password-update-dialog v-if="updatePassowrdVisible" ref="updatePassowrd"/>

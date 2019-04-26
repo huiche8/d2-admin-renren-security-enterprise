@@ -50,6 +50,11 @@ t.updatePassword.comfirmPassword = '确认密码'
 t.updatePassword.validate = {}
 t.updatePassword.validate.comfirmPassword = '确认密码与新密码输入不一致'
 
+t.headerUser = {}
+t.headerUser.hello = '你好'
+t.headerUser.logout = '注销'
+t.headerUser.updatePassword = '修改密码'
+
 t.contentTabs = {}
 t.contentTabs.closeCurrent = '关闭当前标签页'
 t.contentTabs.closeOther = '关闭其它标签页'

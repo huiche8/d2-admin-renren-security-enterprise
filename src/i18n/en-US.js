@@ -50,6 +50,11 @@ t.updatePassword.comfirmPassword = 'Confirm'
 t.updatePassword.validate = {}
 t.updatePassword.validate.comfirmPassword = 'Confirm password is not consistent with new password input'
 
+t.headerUser = {}
+t.headerUser.hello = 'Hello'
+t.headerUser.logout = 'Logout'
+t.headerUser.updatePassword = 'Update Password'
+
 t.contentTabs = {}
 t.contentTabs.closeCurrent = 'Close Current Tab'
 t.contentTabs.closeOther = 'Close Other Tabs'
