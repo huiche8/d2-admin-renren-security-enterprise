@@ -21,7 +21,7 @@
           <el-tab-pane
             v-for="page in opened"
             :key="page.fullPath"
-            :label="page.meta.title || '未命名'"
+            :label="page.meta.title || $t('layoutTab.noName')"
             :name="page.fullPath"/>
         </el-tabs>
       </div>

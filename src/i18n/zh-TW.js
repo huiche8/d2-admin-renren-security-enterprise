@@ -55,6 +55,10 @@ t.headerUser.hello = '你好'
 t.headerUser.logout = '註銷'
 t.headerUser.updatePassword = '修改密碼'
 
+t.layoutTab = {}
+t.layoutTab.index = '首頁'
+t.layoutTab.noName = '未命名'
+
 t.contentTabs = {}
 t.contentTabs.closeCurrent = '關閉當前標籤頁'
 t.contentTabs.closeOther = '關閉其它標籤頁'

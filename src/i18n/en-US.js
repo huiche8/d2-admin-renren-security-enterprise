@@ -55,6 +55,10 @@ t.headerUser.hello = 'Hello'
 t.headerUser.logout = 'Logout'
 t.headerUser.updatePassword = 'Update Password'
 
+t.layoutTab = {}
+t.layoutTab.index = 'Home'
+t.layoutTab.noName = 'No Name'
+
 t.contentTabs = {}
 t.contentTabs.closeCurrent = 'Close Current Tab'
 t.contentTabs.closeOther = 'Close Other Tabs'
