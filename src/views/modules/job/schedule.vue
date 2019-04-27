@@ -112,10 +112,7 @@ export default {
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
       }).then(() => {
-        this.$axios.put('/sys/schedule/pause', id ? [id] : this.dataListSelections.map(item => item.id)).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios.put('/sys/schedule/pause', id ? [id] : this.dataListSelections.map(item => item.id)).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',
@@ -141,10 +138,7 @@ export default {
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
       }).then(() => {
-        this.$axios.put('/sys/schedule/resume', id ? [id] : this.dataListSelections.map(item => item.id)).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios.put('/sys/schedule/resume', id ? [id] : this.dataListSelections.map(item => item.id)).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',
@@ -170,10 +164,7 @@ export default {
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
       }).then(() => {
-        this.$axios.put('/sys/schedule/run', id ? [id] : this.dataListSelections.map(item => item.id)).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios.put('/sys/schedule/run', id ? [id] : this.dataListSelections.map(item => item.id)).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',

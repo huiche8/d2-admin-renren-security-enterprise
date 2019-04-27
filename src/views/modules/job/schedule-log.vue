@@ -63,11 +63,8 @@ export default {
     },
     // 失败信息
     showErrorInfo (id) {
-      this.$axios.get(`/sys/scheduleLog/${id}`).then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
-        this.$alert(res.data.error)
+      this.$axios.get(`/sys/scheduleLog/${id}`).then(res => {
+        this.$alert(res.error)
       }).catch(() => {})
     }
   }

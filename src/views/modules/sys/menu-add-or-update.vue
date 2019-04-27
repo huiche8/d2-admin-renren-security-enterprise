@@ -117,22 +117,16 @@ export default {
     },
     // 获取菜单列表
     getMenuList () {
-      return this.$axios.get('/sys/menu/list?type=0').then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
-        this.menuList = res.data
+      return this.$axios.get('/sys/menu/list?type=0').then(res => {
+        this.menuList = res
       }).catch(() => {})
     },
     // 获取信息
     getInfo () {
-      this.$axios.get(`/sys/menu/${this.dataForm.id}`).then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
+      this.$axios.get(`/sys/menu/${this.dataForm.id}`).then(res => {
         this.dataForm = {
           ...this.dataForm,
-          ...res.data
+          ...res
         }
         if (this.dataForm.pid === '0') {
           return this.deptListTreeSetDefaultHandle()
@@ -162,10 +156,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/menu', this.dataForm).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/menu', this.dataForm).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',

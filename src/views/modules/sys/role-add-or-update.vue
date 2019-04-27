@@ -86,31 +86,22 @@ export default {
     },
     // 获取菜单列表
     getMenuList () {
-      return this.$axios.get('/sys/menu/select').then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
-        this.menuList = res.data
+      return this.$axios.get('/sys/menu/select').then(res => {
+        this.menuList = res
       }).catch(() => {})
     },
     // 获取部门列表
     getDeptList () {
-      return this.$axios.get('/sys/dept/list').then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
-        this.deptList = res.data
+      return this.$axios.get('/sys/dept/list').then(res => {
+        this.deptList = res
       }).catch(() => {})
     },
     // 获取信息
     getInfo () {
-      this.$axios.get(`/sys/role/${this.dataForm.id}`).then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
+      this.$axios.get(`/sys/role/${this.dataForm.id}`).then(res => {
         this.dataForm = {
           ...this.dataForm,
-          ...res.data
+          ...res
         }
         this.dataForm.menuIdList.forEach(item => this.$refs.menuListTree.setChecked(item, true))
         this.$refs.deptListTree.setCheckedKeys(this.dataForm.deptIdList)
@@ -127,10 +118,7 @@ export default {
           ...this.$refs.menuListTree.getCheckedKeys()
         ]
         this.dataForm.deptIdList = this.$refs.deptListTree.getCheckedKeys()
-        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/role', this.dataForm).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/role', this.dataForm).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',

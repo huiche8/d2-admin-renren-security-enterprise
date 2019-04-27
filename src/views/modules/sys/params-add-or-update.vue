@@ -56,13 +56,10 @@ export default {
     },
     // 获取信息
     getInfo () {
-      this.$axios.get(`/sys/params/${this.dataForm.id}`).then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
+      this.$axios.get(`/sys/params/${this.dataForm.id}`).then(res => {
         this.dataForm = {
           ...this.dataForm,
-          ...res.data
+          ...res
         }
       }).catch(() => {})
     },
@@ -72,10 +69,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/params', this.dataForm).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/params', this.dataForm).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',

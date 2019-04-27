@@ -161,41 +161,32 @@ export default {
     },
     // 获取部门列表
     getDeptList () {
-      return this.$axios.get('/sys/dept/list').then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
-        this.deptList = res.data
+      return this.$axios.get('/sys/dept/list').then(res => {
+        this.deptList = res
       }).catch(() => {})
     },
     // 获取角色列表
     getRoleList () {
-      return this.$axios.get('/sys/role/list').then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
-        this.roleList = res.data
+      return this.$axios.get('/sys/role/list').then(res => {
+        this.roleList = res
       }).catch(() => {})
     },
     // 获取信息
     getInfo () {
-      this.$axios.get(`/sys/user/${this.dataForm.id}`).then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
+      this.$axios.get(`/sys/user/${this.dataForm.id}`).then(res => {
         this.dataForm = {
           ...this.dataForm,
-          ...res.data,
+          ...res,
           roleIdList: []
         }
         this.$refs.deptListTree.setCurrentKey(this.dataForm.deptId)
         // 角色配置, 区分是否为默认角色
-        for (var i = 0; i < res.data.roleIdList.length; i++) {
-          if (this.roleList.filter(item => item.id === res.data.roleIdList[i])[0]) {
-            this.dataForm.roleIdList.push(res.data.roleIdList[i])
+        for (var i = 0; i < res.roleIdList.length; i++) {
+          if (this.roleList.filter(item => item.id === res.roleIdList[i])[0]) {
+            this.dataForm.roleIdList.push(res.roleIdList[i])
             continue
           }
-          this.roleIdListDefault.push(res.data.roleIdList[i])
+          this.roleIdListDefault.push(res.roleIdList[i])
         }
       }).catch(() => {})
     },
@@ -217,10 +208,7 @@ export default {
             ...this.dataForm.roleIdList,
             ...this.roleIdListDefault
           ]
-        }).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        }).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',

@@ -117,10 +117,7 @@ export default {
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
       }).then(() => {
-        this.$axios.put(`/act/process/active/${id}`).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios.put(`/act/process/active/${id}`).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',
@@ -139,10 +136,7 @@ export default {
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
       }).then(() => {
-        this.$axios.put(`/act/process/suspend/${id}`).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios.put(`/act/process/suspend/${id}`).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',
@@ -161,10 +155,7 @@ export default {
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
       }).then(() => {
-        this.$axios.post(`/act/process/convertToModel/${id}`).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios.post(`/act/process/convertToModel/${id}`).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',

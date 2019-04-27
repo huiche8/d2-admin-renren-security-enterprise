@@ -66,10 +66,7 @@ export default {
           '/sys/mailtemplate/send',
           this.dataForm,
           { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
-        ).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        ).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',

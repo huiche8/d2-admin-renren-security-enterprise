@@ -133,11 +133,8 @@ export default {
     },
     // 获取信息
     getInfo () {
-      this.$axios.get(`/sys/mailtemplate/${this.dataForm.id}`).then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
-        this.dataForm = res.data
+      this.$axios.get(`/sys/mailtemplate/${this.dataForm.id}`).then(res => {
+        this.dataForm = res
         this.quillEditor.root.innerHTML = this.dataForm.content
       }).catch(() => {})
     },
@@ -151,10 +148,7 @@ export default {
           '/sys/mailtemplate',
           this.dataForm,
           { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
-        ).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        ).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',

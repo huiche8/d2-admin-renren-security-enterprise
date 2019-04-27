@@ -103,10 +103,7 @@ export default {
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
       }).then(() => {
-        this.$axios.post(`/act/model/deploy/${id}`).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios.post(`/act/model/deploy/${id}`).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',

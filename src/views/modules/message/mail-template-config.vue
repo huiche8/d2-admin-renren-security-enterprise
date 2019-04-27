@@ -63,11 +63,8 @@ export default {
     },
     // 获取信息
     getInfo () {
-      this.$axios.get('/sys/mailtemplate/config').then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
-        this.dataForm = res.data
+      this.$axios.get('/sys/mailtemplate/config').then(res => {
+        this.dataForm = res
       }).catch(() => {})
     },
     // 表单提交
@@ -76,10 +73,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$axios.post('/sys/mailtemplate/saveConfig', this.dataForm).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios.post('/sys/mailtemplate/saveConfig', this.dataForm).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',

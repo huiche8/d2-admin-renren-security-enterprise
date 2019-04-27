@@ -82,22 +82,16 @@ export default {
     },
     // 获取部门列表
     getDeptList () {
-      return this.$axios.get('/sys/dept/list').then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
-        this.deptList = res.data
+      return this.$axios.get('/sys/dept/list').then(res => {
+        this.deptList = res
       }).catch(() => {})
     },
     // 获取信息
     getInfo () {
-      this.$axios.get(`/sys/dept/${this.dataForm.id}`).then(({ data: res }) => {
-        if (res.code !== 0) {
-          return this.$message.error(res.msg)
-        }
+      this.$axios.get(`/sys/dept/${this.dataForm.id}`).then(res => {
         this.dataForm = {
           ...this.dataForm,
-          ...res.data
+          ...res
         }
         if (this.dataForm.pid === '0') {
           return this.deptListTreeSetDefaultHandle()
@@ -122,10 +116,7 @@ export default {
         if (!valid) {
           return false
         }
-        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/dept', this.dataForm).then(({ data: res }) => {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
+        this.$axios[!this.dataForm.id ? 'post' : 'put']('/sys/dept', this.dataForm).then(res => {
           this.$message({
             message: this.$t('prompt.success'),
             type: 'success',
