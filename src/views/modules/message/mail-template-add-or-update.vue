@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
+import { cookieGet } from '@/common/cookie'
 import { debounce } from 'lodash'
 import 'quill/dist/quill.snow.css'
 import Quill from 'quill'
@@ -108,7 +108,7 @@ export default {
         theme: 'snow'
       })
       // 自定义上传图片功能 (使用element upload组件)
-      this.uploadUrl = `${window.SITE_CONFIG['apiURL']}/sys/oss/upload?token=${Cookies.get('token')}`
+      this.uploadUrl = `${window.SITE_CONFIG['apiURL']}/sys/oss/upload?token=${cookieGet('token')}`
       this.quillEditor.getModule('toolbar').addHandler('image', () => {
         this.$refs.uploadBtn.$el.click()
       })

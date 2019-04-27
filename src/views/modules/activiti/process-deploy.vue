@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
+import { cookieGet } from '@/common/cookie'
 export default {
   data () {
     return {
@@ -28,7 +28,7 @@ export default {
   methods: {
     init () {
       this.visible = true
-      this.url = `${window.SITE_CONFIG['apiURL']}/act/process/deploy?token=${Cookies.get('token')}`
+      this.url = `${window.SITE_CONFIG['apiURL']}/act/process/deploy?token=${cookieGet('token')}`
       this.fileList = []
     },
     // 上传之前

@@ -1,4 +1,4 @@
-import Cookies from 'js-cookie'
+import { cookieGet } from '@/common/cookie'
 import qs from 'qs'
 export default {
   data () {
@@ -131,7 +131,7 @@ export default {
     // 导出
     exportHandle () {
       var params = qs.stringify({
-        'token': Cookies.get('token'),
+        'token': cookieGet('token'),
         ...this.dataForm
       })
       window.location.href = `${window.SITE_CONFIG['apiURL']}${this.mixinViewModuleOptions.exportURL}?${params}`

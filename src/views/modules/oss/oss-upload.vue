@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
+import { cookieGet } from '@/common/cookie'
 export default {
   data () {
     return {
@@ -29,7 +29,7 @@ export default {
   methods: {
     init () {
       this.visible = true
-      this.url = `${window.SITE_CONFIG['apiURL']}/sys/oss/upload?token=${Cookies.get('token')}`
+      this.url = `${window.SITE_CONFIG['apiURL']}/sys/oss/upload?token=${cookieGet('token')}`
       this.num = 0
       this.fileList = []
     },

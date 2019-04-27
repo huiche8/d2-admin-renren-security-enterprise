@@ -70,7 +70,7 @@
 <script>
 import mixinViewModule from '@/mixins/view-module'
 import Deploy from './process-deploy'
-import Cookies from 'js-cookie'
+import { cookieGet } from '@/common/cookie'
 import qs from 'qs'
 export default {
   mixins: [ mixinViewModule ],
@@ -97,7 +97,7 @@ export default {
     // 获取流程(xml/image)url地址
     getResourceURL (id, name) {
       var params = qs.stringify({
-        'token': Cookies.get('token'),
+        'token': cookieGet('token'),
         'deploymentId': id,
         'resourceName': name
       })
