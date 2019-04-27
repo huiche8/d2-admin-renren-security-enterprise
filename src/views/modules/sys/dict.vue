@@ -72,7 +72,6 @@ export default {
   data () {
     return {
       mixinViewModuleOptions: {
-        activatedIsNeed: false,
         getDataListURL: '/sys/dict/page',
         getDataListIsPage: true,
         deleteURL: '/sys/dict',
