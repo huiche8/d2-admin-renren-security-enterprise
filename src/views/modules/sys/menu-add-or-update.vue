@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import debounce from 'lodash/debounce'
+import { debounce } from 'lodash'
 import { getIconList } from '@/common/renren'
 export default {
   data () {

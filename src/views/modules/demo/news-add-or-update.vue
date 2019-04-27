@@ -30,7 +30,7 @@
 
 <script>
 import Cookies from 'js-cookie'
-import debounce from 'lodash/debounce'
+import { debounce } from 'lodash'
 import 'quill/dist/quill.snow.css'
 import Quill from 'quill'
 export default {

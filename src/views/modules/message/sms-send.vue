@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import debounce from 'lodash/debounce'
+import { debounce } from 'lodash'
 import { isMobile } from '@/common/validate'
 export default {
   data () {
