@@ -50,6 +50,13 @@ t.updatePassword.comfirmPassword = 'Confirm'
 t.updatePassword.validate = {}
 t.updatePassword.validate.comfirmPassword = 'Confirm password is not consistent with new password input'
 
+t.theme = {}
+t.theme.d2 = 'D2Admin Classic'
+t.theme.violet = 'Violet'
+t.theme.line = 'Line'
+t.theme.star = 'Star'
+t.theme.tomorrowNightBlue = 'Tomorrow Night Blue (vsCode)'
+
 t.headerUser = {}
 t.headerUser.hello = 'Hello'
 t.headerUser.logout = 'Logout'

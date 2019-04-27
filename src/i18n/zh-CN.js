@@ -50,6 +50,13 @@ t.updatePassword.comfirmPassword = '确认密码'
 t.updatePassword.validate = {}
 t.updatePassword.validate.comfirmPassword = '确认密码与新密码输入不一致'
 
+t.theme = {}
+t.theme.d2 = 'D2Admin 经典'
+t.theme.violet = '紫罗兰'
+t.theme.line = '简约线条'
+t.theme.star = '繁星'
+t.theme.tomorrowNightBlue = 'Tomorrow Night Blue (vsCode)'
+
 t.headerUser = {}
 t.headerUser.hello = '你好'
 t.headerUser.logout = '注销'

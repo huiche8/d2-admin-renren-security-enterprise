@@ -28,6 +28,8 @@ export const messages = {
   }
 }
 
+console.log(cookieGet('language'))
+
 export default new VueI18n({
   locale: cookieGet('language') || 'zh-CN',
   messages
