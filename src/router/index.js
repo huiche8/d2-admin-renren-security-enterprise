@@ -147,9 +147,13 @@ router.beforeEach((to, from, next) => {
       store.commit('d2admin/page/init', renrenMenuToD2AdminPageInitData(res, routeNameDict, routePathDict))
       store.commit('d2admin/search/init', renrenMenuToD2AdminSearchInitData(res, routeNameDict, routePathDict))
       next({ ...to, replace: true })
+      // 进度条
+      NProgress.done()
     }).catch(error => {
       console.log('error', error)
       next({ name: 'login' })
+      // 进度条
+      NProgress.done()
     })
 })
 
