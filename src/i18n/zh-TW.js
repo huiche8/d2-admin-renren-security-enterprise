@@ -23,6 +23,10 @@ t.prompt.info = '確定進行[{handle}]操作?'
 t.prompt.success = '操作成功'
 t.prompt.failed = '操作失敗'
 t.prompt.deleteBatch = '請選擇刪除項'
+t.prompt.logout = '註銷當前帳戶嗎?'
+
+t.message = {}
+t.message.logoutCancel = '放弃註銷用戶'
 
 t.validate = {}
 t.validate.required = '必填項不能為空'

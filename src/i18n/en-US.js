@@ -23,6 +23,10 @@ t.prompt.info = 'Confirm to carry out [{handle}] operation?'
 t.prompt.success = 'Succeeded'
 t.prompt.failed = 'Failed'
 t.prompt.deleteBatch = 'Please select delete item'
+t.prompt.logout = 'Do you cancel your current account ?'
+
+t.message = {}
+t.message.logoutCancel = 'Abandoning logout users'
 
 t.validate = {}
 t.validate.required = 'Required field cannot be empty'
