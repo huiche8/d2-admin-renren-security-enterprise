@@ -70,6 +70,11 @@ t.layout.tooltip.fullscreen = '全屏'
 t.layout.tooltip.fullscreenActive = '退出全屏'
 t.layout.tooltip.theme = '主题'
 t.layout.tooltip.search = '搜索'
+t.layout.search = {}
+t.layout.search.placeholder = '搜索页面'
+t.layout.search.tip1 = '您可以使用快捷键'
+t.layout.search.tip2 = '唤醒搜索面板，按'
+t.layout.search.tip3 = '关闭。'
 
 t.layoutTab = {}
 t.layoutTab.index = '首页'

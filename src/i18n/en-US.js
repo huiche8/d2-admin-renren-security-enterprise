@@ -70,6 +70,11 @@ t.layout.tooltip.fullscreen = 'Fullscreen'
 t.layout.tooltip.fullscreenActive = 'Exit Fullscreen'
 t.layout.tooltip.theme = 'Theme'
 t.layout.tooltip.search = 'Search'
+t.layout.search = {}
+t.layout.search.placeholder = 'Search Pages'
+t.layout.search.tip1 = 'Press'
+t.layout.search.tip2 = 'open search panel, and press'
+t.layout.search.tip3 = 'close it.'
 
 t.layoutTab = {}
 t.layoutTab.index = 'Home'
