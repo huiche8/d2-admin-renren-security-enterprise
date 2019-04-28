@@ -69,6 +69,7 @@ t.layout.tooltip = {}
 t.layout.tooltip.fullscreen = '全屏'
 t.layout.tooltip.fullscreenActive = '退出全屏'
 t.layout.tooltip.theme = '主題'
+t.layout.tooltip.search = '查找'
 
 t.layoutTab = {}
 t.layoutTab.index = '首頁'

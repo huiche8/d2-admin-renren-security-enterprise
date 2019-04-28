@@ -69,6 +69,7 @@ t.layout.tooltip = {}
 t.layout.tooltip.fullscreen = 'Fullscreen'
 t.layout.tooltip.fullscreenActive = 'Exit Fullscreen'
 t.layout.tooltip.theme = 'Theme'
+t.layout.tooltip.search = 'Search'
 
 t.layoutTab = {}
 t.layoutTab.index = 'Home'
