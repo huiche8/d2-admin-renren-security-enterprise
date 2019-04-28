@@ -61,10 +61,14 @@ t.theme.line = '簡約線條'
 t.theme.star = '流星'
 t.theme.tomorrowNightBlue = 'Tomorrow Night Blue (vsCode)'
 
-t.headerUser = {}
-t.headerUser.hello = '你好'
-t.headerUser.logout = '註銷'
-t.headerUser.updatePassword = '修改密碼'
+t.layout = {}
+t.layout.hello = '你好'
+t.layout.logout = '註銷'
+t.layout.updatePassword = '修改密碼'
+t.layout.tooltip = {}
+t.layout.tooltip.fullscreen = '全屏'
+t.layout.tooltip.fullscreenActive = '退出全屏'
+t.layout.tooltip.theme = '主題'
 
 t.layoutTab = {}
 t.layoutTab.index = '首頁'

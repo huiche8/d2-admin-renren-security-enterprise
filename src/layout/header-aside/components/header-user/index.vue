@@ -1,14 +1,14 @@
 <template>
   <el-dropdown size="small" class="d2-mr">
-    <span class="btn-text">{{info.name ? `${$t('headerUser.hello')} ${info.name}` : ''}}</span>
+    <span class="btn-text">{{info.name ? `${$t('layout.hello')} ${info.name}` : ''}}</span>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item @click.native="logOff">
         <d2-icon name="power-off" class="d2-mr-5"/>
-        {{$t('headerUser.logout')}}
+        {{$t('layout.logout')}}
       </el-dropdown-item>
       <el-dropdown-item @click.native="resetPassword">
         <d2-icon name="key" class="d2-mr-5"/>
-        {{$t('headerUser.updatePassword')}}
+        {{$t('layout.updatePassword')}}
       </el-dropdown-item>
     </el-dropdown-menu>
     <d2-password-update-dialog v-if="updatePassowrdVisible" ref="updatePassowrd"/>

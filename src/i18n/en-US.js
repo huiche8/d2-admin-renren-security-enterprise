@@ -61,10 +61,14 @@ t.theme.line = 'Line'
 t.theme.star = 'Star'
 t.theme.tomorrowNightBlue = 'Tomorrow Night Blue (vsCode)'
 
-t.headerUser = {}
-t.headerUser.hello = 'Hello'
-t.headerUser.logout = 'Logout'
-t.headerUser.updatePassword = 'Update Password'
+t.layout = {}
+t.layout.hello = 'Hello'
+t.layout.logout = 'Logout'
+t.layout.updatePassword = 'Update Password'
+t.layout.tooltip = {}
+t.layout.tooltip.fullscreen = 'Fullscreen'
+t.layout.tooltip.fullscreenActive = 'Exit Fullscreen'
+t.layout.tooltip.theme = 'Theme'
 
 t.layoutTab = {}
 t.layoutTab.index = 'Home'
