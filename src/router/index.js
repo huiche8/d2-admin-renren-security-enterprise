@@ -204,6 +204,25 @@ function fnAddDynamicMenuRoutes (menuList = [], routes = []) {
     if (isURL(URL)) {
       route['path'] = route['name'] = `i-${menuList[i].id}`
       route['meta']['iframeURL'] = URL
+      route['component'] = {
+        render (h) {
+          return h('d2-container', {}, [
+            h('iframe', {
+              style: {
+                position: 'absolute',
+                top: '0px',
+                left: '0px',
+                height: '100%',
+                width: '100%'
+              },
+              attrs: {
+                src: URL,
+                frameborder: 0
+              }
+            })
+          ])
+        }
+      }
     } else {
       URL = URL.replace(/^\//, '').replace(/_/g, '-')
       route['path'] = route['name'] = URL.replace(/\//g, '-')
