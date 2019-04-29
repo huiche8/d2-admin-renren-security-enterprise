@@ -208,7 +208,7 @@ export default {
   }
   // main
   .page-login--logo {
-    width: 240px;
+    width: 290px;
     margin-bottom: 2em;
     margin-top: -2em;
   }
