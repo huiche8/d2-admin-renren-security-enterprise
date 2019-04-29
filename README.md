@@ -1,7 +1,7 @@
+![banner](https://raw.githubusercontent.com/d2-projects/d2-admin-renren-security-enterprise/master/doc/image/banner.png)
+
 # D2Admin Renren Security Enterprise
 
-使用 [D2Admin](https://github.com/d2-projects/d2-admin) 开发适配 [人人企业版](https://www.renren.io/enterprise) 的前端工程。
+[![Build Status](https://www.travis-ci.org/d2-projects/d2-admin-renren-security-enterprise.svg?branch=master)](https://www.travis-ci.org/d2-projects/d2-admin-renren-security-enterprise)
 
-基于 D2Admin 1.6.18 改造。
-
-正在开发，暂时请勿使用，可以关注。
+使用 [D2Admin](https://github.com/d2-projects/d2-admin) 开发适配 [人人企业版(专业版)](https://www.renren.io/enterprise) 的前端工程。
