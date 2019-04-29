@@ -63,13 +63,13 @@
 
 ## 奖励
 
-我坚决不会像某些开源项目一样走 👎 收费 or 👎 部分收费 or 👎 文档收费 or 👎 交流群收费 路线。作为一名一线开发者，业余开源没有资金回报，请尽量资助作者继续相关项目开发以及 CDN / https 费用。感谢 🤝。
+我坚决不会像某些开源项目一样走 👎 收费 or 👎 部分收费 or 👎 文档收费 or 👎 交流群收费 路线。作为一名一线开发者，业余开源没有资金回报，请尽量资助作者继续相关项目开发以及 CDN / https / 日常运营 费用。感谢 🤝。
 
 ![join](https://raw.githubusercontent.com/d2-projects/d2-admin/master/doc/image/reward-me@2x.png)
 
 ## 徽章
 
-如果您的开源项目基于 D2Admin 开发，请在您的 README 添加下面的徽章：
+如果您的开源项目基于 [D2Admin](https://github.com/d2-projects/d2-admin) 开发，请在您的 README 添加下面的徽章：
 
 <a href="https://github.com/d2-projects/d2-admin" target="_blank">
 	<img src="https://raw.githubusercontent.com/FairyEver/d2-admin/master/doc/image/d2-admin@2x.png" width="200">
@@ -81,7 +81,7 @@
 <a href="https://github.com/d2-projects/d2-admin" target="_blank"><img src="https://raw.githubusercontent.com/FairyEver/d2-admin/master/doc/image/d2-admin@2x.png" width="200"></a>
 ```
 
-同时您可以将您的项目汇报给我们，优秀项目我们会放置在 D2Admin 相关位置并帮助您宣传。
+同时您可以将您的项目汇报给我们，优秀项目我们会放置在 [D2Admin](https://github.com/d2-projects/d2-admin) 相关位置并帮助您宣传。
 
 ## 加入我们
 
